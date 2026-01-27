@@ -3,7 +3,7 @@ layout: "../../layouts/Layout.astro"
 title: "中国电动车产业：重塑全球交通的绿色风暴"
 description: "深度分析中国新能源汽车如何改变世界交通格局。"
 pubDate: "2026-01-27"
-heroImage: "https://raw.githubusercontent.com"
+heroImage: "/hero.png"
 badge: "行业观察"
 ---
 
