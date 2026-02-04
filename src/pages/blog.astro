@@ -5,10 +5,8 @@ import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
 import Sectionhead from "@/components/sectionhead.astro";
 
-// Filter blog entries with 'draft: false' & date before current date
-const publishedBlogEntries = await getCollection("blog", ({ data }) => {
-  return !data.draft && data.publishDate < new Date();
-});
+// Show all blog entries regardless of draft or date
+const publishedBlogEntries = await getCollection("blog");
 
 // Sort content entries by publication date
 publishedBlogEntries.sort(function (a, b) {

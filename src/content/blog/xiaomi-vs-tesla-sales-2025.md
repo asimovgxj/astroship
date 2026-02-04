@@ -3,10 +3,10 @@ draft: false
 title: "小米与特斯拉销量对比：2025年末趋势与数据真相"
 snippet: "权威数据表明：小米汽车2025年12月月交付突破5万，非“40多辆”。与特斯拉中国市场月度与年度销量对比，解析双方在竞争加剧下的表现。"
 image: {
-  src: "https://images.unsplash.com/photo-1552519507-3b66a01d7b1c?auto=format&fit=crop&w=1200&q=80",
-  alt: "EVs in China market"
+  src: "https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=1000&q=80",
+  alt: "Xiaomi vs Tesla Sales Comparison"
 }
-publishDate: "2026-02-02 11:00"
+publishDate: "2025-12-31 12:00"
 category: "Analysis"
 author: "Astroship"
 tags: [Xiaomi, Tesla, EV, China, Sales]

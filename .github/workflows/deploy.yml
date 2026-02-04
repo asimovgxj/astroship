@@ -2,8 +2,7 @@ name: Deploy Astro to GitHub Pages
 
 on:
   push:
-    branches:
-      - "**"
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -44,6 +43,9 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deploy

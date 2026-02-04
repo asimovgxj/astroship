@@ -4,6 +4,8 @@ Astroship is a free starter astro website template for saas, startups, marketing
 
 This Free Template is sponsored by [Web3Templates](https://web3templates.com)
 
+<!-- debug push -->
+<!-- force trigger workflow -->
 ## Live Demo
 
 **[https://astroship.web3templates.com/](https://astroship.web3templates.com/)**

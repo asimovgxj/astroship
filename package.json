@@ -8,7 +8,10 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "publish": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/publish.ps1",
+    "status": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/status.ps1",
+    "set-origin": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/set-origin.ps1"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.2.0",
