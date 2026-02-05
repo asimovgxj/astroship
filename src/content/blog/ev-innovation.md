@@ -2,8 +2,7 @@
 draft: false
 title: "纯电机动车是否算科技创新？一篇面向现实的判断"
 snippet: "从电驱总成、软件定义汽车到商业模式与基础设施，纯电动车的创新究竟发生在何处？它与“发明新技术”之间的差异与联系是什么。"
-image:
-  src: "https://images.unsplash.com/photo-1617817311372-8fd18e8768d0?auto=format&fit=crop&w=1000&q=80"
+image:"https://images.unsplash.com/photo-1617817311372-8fd18e8768d0?auto=format&fit=crop&w=1000&q=80"
   alt: "EV innovation discussion"
 publishDate: "2026-02-05 12:00"
 category: "Opinion"
