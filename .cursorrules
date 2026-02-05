@@ -1,0 +1,22 @@
+# Trae 全自动更文与推送准则 (非程序员模式)
+
+## 1. 环境安全与防崩溃
+- **URL 保险**：修改或新建页面前，必须检查 `astro.config.mjs`。确保 `site` 配置在本地环境下有保底值（如：`site: isGithubPages ? '...' : 'http://localhost:4321'`），严禁导致 `Invalid URL` 报错。
+
+## 2. 文章内容规范 (严格遵守)
+- **元数据必填**：每篇新文章必须包含以下字段：`draft: false`、`title`、`snippet`、`image` (含 src 和 alt)、`category`、`author`、`tags`、`publishDate`。
+- **时间校准**：`publishDate` 必须自动生成当前的北京时间（YYYY-MM-DD）。
+- **配图自动化**：优先使用 `public/images/` 已有图片，若无则自动生成高质 Unsplash 随机图片链接。
+
+## 3. 自动化推送流程 (核心执行指令)
+- **触发条件**：当接收到“推送/发布/同步/Push”等指令时，立即执行。
+- **执行手段**：- **执行手段**：必须使用 PowerShell 兼容的单行命令：
+  `git add -A ; git commit -m "Update via Trae" ; git push origin main`
+- **静默要求**：
+  - **严禁交互**：禁止弹出 Vim、Nano 或任何需要手动输入的编辑器界面。
+  - **强制静默**：无需等待用户确认，直接跑完所有 Git 指令。
+  - **冲突处理**：若推送失败提示落后于远程，请先自动执行 `git pull --rebase` 解决。
+
+## 4. 禁止事项
+- 禁止向用户询问任何 Git 命令行参数、路径配置或技术报错。
+- 禁止在本地 `npm run dev` 报错的状态下尝试推送。
