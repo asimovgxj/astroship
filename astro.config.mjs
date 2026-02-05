@@ -9,7 +9,8 @@ const target = process.env.DEPLOY_TARGET;
 const isGithubPages = target === "GITHUB_PAGES";
 
 export default defineConfig({
-  site: isGithubPages ? `https://asimovgxj.github.io/${repo}` : undefined,
+site: isGithubPages ? `https://asimovgxj.github.io/${repo}` : 'http://localhost:4321',
+ 
   base: isGithubPages ? `/${repo}` : "/",
   outDir: "dist",
   integrations: [mdx(), sitemap(), icon()],

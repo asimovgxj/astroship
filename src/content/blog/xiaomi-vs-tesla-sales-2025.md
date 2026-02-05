@@ -6,7 +6,7 @@ image: {
   src: "https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=1000&q=80",
   alt: "Xiaomi vs Tesla Sales Comparison"
 }
-publishDate: "2025-12-31 12:00"
+publishDate: "2026-02-05 12:00"
 category: "Analysis"
 author: "Astroship"
 tags: [Xiaomi, Tesla, EV, China, Sales]
