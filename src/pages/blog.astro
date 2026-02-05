@@ -23,7 +23,6 @@ publishedBlogEntries.sort((a, b) =>
           <li>
             <a href={`/blog/${blogPostEntry.slug}`}>
               <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
-                <pre>{JSON.stringify(blogPostEntry.data.image, null, 2)}</pre>
                 <img
                   src={blogPostEntry.data.image.src}
                   alt={blogPostEntry.data.image.alt}
