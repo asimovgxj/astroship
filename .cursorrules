@@ -10,8 +10,8 @@
 
 ## 3. 自动化推送流程 (核心执行指令)
 - **触发条件**：当接收到“推送/发布/同步/Push”等指令时，立即执行。
-- **执行手段**：- **执行手段**：必须使用 PowerShell 兼容的单行命令：
-  `git add -A ; git commit -m "Update via Trae" ; git push origin main`
+- - **执行手段**：使用 PowerShell 纯命令，跳过 IDE 脚本：
+  `git add -A ; git commit -m "update" ; git push origin main`
 - **静默要求**：
   - **严禁交互**：禁止弹出 Vim、Nano 或任何需要手动输入的编辑器界面。
   - **强制静默**：无需等待用户确认，直接跑完所有 Git 指令。
