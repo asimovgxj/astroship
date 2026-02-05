@@ -1,9 +1,8 @@
 ---
 import { getCollection } from "astro:content";
-import { Picture } from "astro:assets";
-import Layout from "@/layouts/Layout.astro";
-import Container from "@/components/container.astro";
-import Sectionhead from "@/components/sectionhead.astro";
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/container.astro";
+import Sectionhead from "../components/sectionhead.astro";
 
 // 获取并排序博客文章
 const publishedBlogEntries = await getCollection("blog");
@@ -24,13 +23,13 @@ publishedBlogEntries.sort((a, b) =>
           <li>
             <a href={`/blog/${blogPostEntry.slug}`}>
               <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
-                <Picture
+                <img
                   src={blogPostEntry.data.image.src}
                   alt={blogPostEntry.data.image.alt}
-                  sizes="(max-width: 800px) 100vw, 800px"
-                  width={800}
-                  height={600}
+                  width="800"
+                  height="600"
                   loading="lazy"
+                  decoding="async"
                   class="w-full rounded-md object-cover bg-white"
                 />
                 <div>
