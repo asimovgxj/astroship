@@ -18,7 +18,7 @@ As reported by international observers, for some emerging Chinese giants, "Crisi
 ### 1. Protectionism and the "Silent" Barrier
 For leading domestic champions (notably giants like **BYD**), a sophisticated defense mechanism is often observed during safety crises involving spontaneous combustion or structural failures:
 
-- **Administrative Intervention:** Evidence suggests that strong administrative influence is frequently leveraged to suppress viral incident reports on platforms like WeChat and Weibo. Eyewitness footage of EV accidents often disappears within hours—a process described as "content cleaning" [Robert Pepper on BYD Legal Actions](https://www.facebook.com).
+- **Administrative Intervention:** Evidence suggests that strong **administrative influence** is frequently leveraged to suppress viral incident reports on platforms like WeChat and Weibo. Eyewitness footage of EV accidents often disappears within hours—a process described as "content cleaning" [Robert Pepper on BYD Legal Actions](https://www.facebook.com).
 - **Legal Deterrence:** Manufacturers deploy their legal departments to issue mass defamation lawsuits against individual bloggers and victims. In mid-2025, a leading player confirmed launching legal action against **37 influencer accounts** simultaneously, claiming brand defamation [Economic Times: Chinese brands use legal threats](https://brandequity.economictimes.indiatimes.com).
 
 ### 2. The "Tesla Exception": Encouraged Criticism?
@@ -38,6 +38,7 @@ In early 2026, the **Ministry of Industry and Information Technology (MIIT)** of
 ### Data Overview: Legal & Narrative Tactics (2025 Est.)
 
 
+
 | Tactic | Target: Domestic Champions | Target: Tesla |
 | :--- | :--- | :--- |
 | **Content Takedowns** | Rapid / High Intensity | Selective / Low Intensity |
@@ -46,6 +47,10 @@ In early 2026, the **Ministry of Industry and Information Technology (MIIT)** of
 
 ### Analyst's View: The Trust Deficit
 At **AutoChina Intelligence**, we identify this as a **"Systemic Market Distortion."** While administrative shielding might preserve short-term brand equity, the lack of a transparent, fair-play environment—including equal treatment for foreign entities like Tesla—weakens the industry's long-term resilience. For global investors, understanding this "Asymmetric Narrative" is crucial for assessing true market risk in China.
+
+---
+
+**Disclaimer:** *The information provided in this report is based on publicly available news, social media reports, and third-party industry analysis. AutoChina Intelligence does not claim these as absolute facts but as a reflection of current industry discourse and documented media trends. Readers are encouraged to verify information through official regulatory channels.*
 
 ---
 **← [Back to Market Intelligence](/market)**
