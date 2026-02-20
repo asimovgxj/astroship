@@ -2,48 +2,56 @@
 import Link from "@/components/ui/link.astro";
 import { Icon } from "astro-icon/components";
 
-// 拼接大法：绕过显示截断
-const p1 = "https://images.unsplash.com/";
-const p2 = "photo-1593941707882-a5bba14938c7";
-const p3 = "?auto=format&fit=crop&w=800&q=80";
+// 拼接大法：选用一张浅色、极简、高呼吸感的科技图片
+// 使用 \x2f 确保斜杠 / 正常生成
+const p1 = "https://images.unsplash.com" + "\x2f";
+const p2 = "photo-1664320213721-667746401026"; 
+const p3 = "?auto=format&fit=crop&w=800&h=450&q=80";
 const heroRemoteImage = p1 + p2 + p3;
 ---
 
-<main class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
-  <div class="py-6 md:order-1 hidden md:block">
-    <img
-      src={heroRemoteImage}
-      alt="AutoChina Technology"
-      width="800"
-      height="600"
-      loading="eager"
-      decoding="async"
-      class="rounded-2xl shadow-2xl w-full h-auto object-cover aspect-[4/3]"
-    />
+<main
+  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
+  <div class="py-6 md:order-1 hidden md:block w-full">
+    <!-- 图片外层增加 overflow-hidden 和 aspect 比例控制高度 -->
+    <div class="overflow-hidden rounded-xl bg-slate-50 border border-slate-100 shadow-sm aspect-[16/9]">
+      <img
+        src={heroRemoteImage}
+        alt="AutoChina Future Mobility"
+        width="800"
+        height="450"
+        loading="eager"
+        decoding="async"
+        class="w-full h-full object-cover transition duration-500 hover:scale-105"
+      />
+    </div>
   </div>
   <div>
-    <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter text-slate-900">
+    <h1
+      class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter text-slate-900 leading-tight">
       Decoding <span class="text-emerald-600">China's</span> Automotive Future
     </h1>
     <p class="text-lg mt-4 text-slate-600 max-w-xl leading-relaxed">
       Independent research, strategic intelligence, and real-time insights into China's electric vehicle revolution and global expansion strategy.
     </p>
     <div class="mt-6 flex flex-col sm:flex-row gap-3">
+      <!-- 翡翠绿主按钮 -->
       <Link
         href="/blog"
         size="lg"
-        class="flex gap-1 items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white transition border-none px-6"
+        class="flex gap-1 items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white transition border-none px-8"
         rel="noopener">
         <Icon class="text-white w-5 h-5" name="bx:bxs-zap" />
         Explore Insights
       </Link>
+      <!-- 次按钮改为描边样式，显得更透亮 -->
       <Link
         size="lg"
         style="outline"
         rel="noopener"
         href="/about"
-        class="flex gap-1 items-center justify-center border-slate-200 hover:border-emerald-600 hover:text-emerald-700 transition px-6">
-        <Icon class="text-slate-800 w-4 h-4" name="bx:bxs-file-find" />
+        class="flex gap-1 items-center justify-center border-slate-200 hover:border-emerald-600 hover:text-emerald-700 transition px-8 text-slate-800">
+        <Icon class="w-4 h-4" name="bx:bxs-file-find" />
         Our Mission
       </Link>
     </div>
