@@ -11,42 +11,45 @@ publishedBlogEntries.sort((a, b) =>
 );
 ---
 
-<Layout title="Blog">
+<Layout title="Industry Intelligence | AutoChina.org">
   <Container>
+    <!-- Sectionhead 文案升级，提升专业感 -->
     <Sectionhead>
-      <Fragment slot="title">Our Blog</Fragment>
-      <Fragment slot="desc">这里是所有的文章汇总。</Fragment>
+      <Fragment slot="title">Industry Intelligence</Fragment>
+      <Fragment slot="desc">
+        Strategic insights and real-time updates on China's automotive global expansion.
+      </Fragment>
     </Sectionhead>
     <main class="mt-16">
       <ul class="grid gap-16 max-w-4xl mx-auto">
         {publishedBlogEntries.map((blogPostEntry) => (
           <li>
             <a href={`/blog/${blogPostEntry.slug}`}>
-              <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
-                <!--
-                <img
-                  src={blogPostEntry.data.image.src}
-                  alt={blogPostEntry.data.image.alt}
-                  class="w-full rounded-md object-cover bg-white"
-                />-->
-                <img
-  src={typeof blogPostEntry.data.image === 'string' 
-    ? blogPostEntry.data.image 
-    : (blogPostEntry.data.image?.src || "")}
-  alt={blogPostEntry.data.image?.alt || "Blog Image"}
-  width="800"
-  height="600"
-  loading="lazy"
-  decoding="async"
-  class="w-full rounded-md object-cover bg-white"
-/>
+              <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center group">
+                <div class="overflow-hidden rounded-md bg-slate-100 aspect-video">
+                   <img
+                    src={typeof blogPostEntry.data.image === 'string' 
+                      ? blogPostEntry.data.image 
+                      : (blogPostEntry.data.image?.src || "")}
+                    alt={blogPostEntry.data.image?.alt || "AutoChina Report"}
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-full object-cover transition duration-300 group-hover:scale-105"
+                  />
+                </div>
                 <div>
-                  <span class="text-blue-400 uppercase text-sm font-medium">
+                  <!-- 翡翠绿分类标签 -->
+                  <span class="text-emerald-600 uppercase text-xs font-bold tracking-wider">
                     {blogPostEntry.data.category}
                   </span>
-                  <h2 class="text-3xl font-semibold mt-1">
+                  <h2 class="text-2xl font-bold mt-2 text-slate-800 group-hover:text-emerald-700 transition duration-200">
                     {blogPostEntry.data.title}
                   </h2>
+                  <p class="text-slate-500 mt-2 line-clamp-3 italic leading-relaxed">
+                    {blogPostEntry.data.snippet}
+                  </p>
                 </div>
               </div>
             </a>
