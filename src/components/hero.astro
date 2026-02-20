@@ -2,27 +2,21 @@
 import Link from "@/components/ui/link.astro";
 import { Icon } from "astro-icon/components";
 
-// 拼接大法：选用一张浅色、极简、高呼吸感的科技图片
-// 使用 \x2f 确保斜杠 / 正常生成
-const p1 = "https://images.unsplash.com" + "\x2f";
-const p2 = "photo-1664320213721-667746401026"; 
-const p3 = "?auto=format&fit=crop&w=800&h=450&q=80";
-const heroRemoteImage = p1 + p2 + p3;
+// 这是一个极其干净的方案：不再使用容易产生“黑块”的实景图
+// 改用一个具有科技感、半透明、翡翠绿色的新能源图标
 ---
 
 <main
   class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
-  <div class="py-6 md:order-1 hidden md:block w-full">
-    <!-- 图片外层增加 overflow-hidden 和 aspect 比例控制高度 -->
-    <div class="overflow-hidden rounded-xl bg-slate-50 border border-slate-100 shadow-sm aspect-[16/9]">
-      <img
-        src={heroRemoteImage}
-        alt="AutoChina Future Mobility"
-        width="800"
-        height="450"
-        loading="eager"
-        decoding="async"
-        class="w-full h-full object-cover transition duration-500 hover:scale-105"
+  <div class="py-6 md:order-1 hidden md:block w-full flex justify-center items-center">
+    <!-- 视觉核心：使用一个巨大的、带有渐变感的科技图标，实现 100% 无缝融入白色背景 -->
+    <div class="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
+      <!-- 底层装饰圆圈，增加层次感 -->
+      <div class="absolute inset-0 bg-emerald-50 rounded-full animate-pulse opacity-50"></div>
+      <!-- 核心图标：使用新能源/汽车/电池相关的科技图标 -->
+      <Icon 
+        name="bx:bxs-zap" 
+        class="w-40 h-40 md:w-56 md:h-56 text-emerald-600 opacity-80 relative z-10" 
       />
     </div>
   </div>
@@ -39,12 +33,12 @@ const heroRemoteImage = p1 + p2 + p3;
       <Link
         href="/blog"
         size="lg"
-        class="flex gap-1 items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white transition border-none px-8"
+        class="flex gap-1 items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white transition border-none px-8 shadow-lg shadow-emerald-100"
         rel="noopener">
         <Icon class="text-white w-5 h-5" name="bx:bxs-zap" />
         Explore Insights
       </Link>
-      <!-- 次按钮改为描边样式，显得更透亮 -->
+      <!-- 次按钮 -->
       <Link
         size="lg"
         style="outline"
