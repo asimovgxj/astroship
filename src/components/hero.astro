@@ -1,6 +1,7 @@
 ---
 import { Picture } from "astro:assets";
-import heroImage from "@/assets/hero.png";
+// 建议：后期你可以找一张国产电动车（如小米SU7或比亚迪）的高清图替换 hero.png
+import heroImage from "@/assets/hero.png"; 
 import Link from "@/components/ui/link.astro";
 import { Icon } from "astro-icon/components";
 ---
@@ -10,43 +11,42 @@ import { Icon } from "astro-icon/components";
   <div class="py-6 md:order-1 hidden md:block">
     <Picture
       src={heroImage}
-      alt="Astronaut in the air"
+      alt="AutoChina Future Tech"
       widths={[200, 400, 600]}
       sizes="(max-width: 800px) 100vw, 620px"
       loading="eager"
       format="avif"
+      class="rounded-2xl shadow-2xl"
     />
   </div>
   <div>
     <h1
       class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
-      Marketing website done with Astro
+      Decoding <span class="text-emerald-600">China's</span> Automotive Future
     </h1>
-    <p class="text-lg mt-4 text-slate-600 max-w-xl">
-      Astroship is a starter template for startups, marketing websites & landing
-      pages.<wbr /> Built with Astro.build and TailwindCSS. You can quickly create
-      any website with this starter.
+    <p class="text-lg mt-4 text-slate-600 max-w-xl leading-relaxed">
+      Independent research, strategic intelligence, and real-time insights into China's electric vehicle revolution and global expansion strategy.
     </p>
     <div class="mt-6 flex flex-col sm:flex-row gap-3">
+      <!-- 主按钮：指向智库文章列表 -->
       <Link
-        href="#"
-        href="https://web3templates.com/templates/astroship-starter-website-template-for-astro"
-        target="_blank"
-        class="flex gap-1 items-center justify-center"
+        href="/blog"
+        size="lg"
+        class="flex gap-1 items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white transition border-none"
         rel="noopener">
-        <Icon class="text-white w-5 h-5" name="bx:bxs-cloud-download" />
-
-        Download for Free
+        <Icon class="text-white w-5 h-5" name="bx:bxs-zap" />
+        Explore Insights
       </Link>
+      <!-- 次按钮：指向关于我们 -->
       <Link
         size="lg"
         style="outline"
         rel="noopener"
-        href="https://github.com/surjithctly/astroship"
-        class="flex gap-1 items-center justify-center"
+        href="/about"
+        class="flex gap-1 items-center justify-center border-slate-200 hover:border-emerald-600 hover:text-emerald-700 transition"
         target="_blank">
-        <Icon class="text-black w-4 h-4" name="bx:bxl-github" />
-        GitHub Repo
+        <Icon class="text-slate-800 w-4 h-4" name="bx:bxs-file-find" />
+        Our Mission
       </Link>
     </div>
   </div>
