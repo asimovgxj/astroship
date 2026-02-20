@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import Container from "../components/container.astro";
 import Sectionhead from "../components/sectionhead.astro";
 
-// 关键逻辑：只抓取属于 Market 目录的文章
+// 获取所有分类为 Market 的文章
 const marketEntries = await getCollection("blog", ({ data }) => {
   return data.category === "Market";
 });
@@ -29,17 +29,18 @@ marketEntries.sort((a, b) =>
             <a href={`/blog/${entry.slug}`}>
               <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center group">
                 <div class="overflow-hidden rounded-md bg-slate-100 aspect-video">
+                  <!-- 这里的 src 逻辑做了多重保障，确保能读到嵌套的 src 属性 -->
                   <img
-  src={typeof entry.data.image === 'string' 
-    ? entry.data.image 
-    : (entry.data.image?.src || "")}
-  alt={entry.data.image?.alt || "Market Intelligence"}
-  width="800"
-  height="600"
-  loading="lazy"
-  decoding="async"
-  class="w-full h-full object-cover transition duration-300 group-hover:scale-105"
-/>
+                    src={typeof entry.data.image === 'string' 
+                      ? entry.data.image 
+                      : (entry.data.image?.src || "")}
+                    alt={entry.data.image?.alt || "Market Report"}
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-full object-cover transition duration-300 group-hover:scale-105"
+                  />
                 </div>
                 <div>
                   <span class="text-emerald-600 uppercase text-xs font-bold tracking-wider">
