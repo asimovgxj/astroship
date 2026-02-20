@@ -3,7 +3,7 @@ draft: false
 title: "The Efficiency King: Why Tesla Model Y Remains the BEV Sales Champion in 2025"
 snippet: "Despite a surge in diversified product portfolios from Chinese competitors, Tesla's single-model dominance persists. We analyze the 2025 delivery data."
 image:
-  src: "https://images.unsplash.com"
+  src: "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=1200&q=80"
   alt: "Tesla Model Y Production"
 publishDate: "2025-10-15"
 category: "Market"
