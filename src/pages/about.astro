@@ -1,57 +1,63 @@
 ---
-import { getCollection } from "astro:content";
-import { Picture } from "astro:assets";
+// src/pages/about.astro
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
 import Sectionhead from "@/components/sectionhead.astro";
 
-// Filter team entries with 'draft: false' & date before current date
-const publishedTeamMembers = await getCollection("team", ({ data }) => {
-  return !data.draft && data.publishDate < new Date();
-});
+// 移除原有的 team 集合调用，改为由 AI 驱动的智库介绍
 ---
 
-<Layout title="About">
+<Layout title="Our Mission | AutoChina.org">
   <Container>
     <Sectionhead>
-      <Fragment slot="title">About</Fragment>
-      <Fragment slot="desc">We are a small passionate team.</Fragment>
+      <Fragment slot="title">Our Mission</Fragment>
+      <Fragment slot="desc">
+        Bridging the information gap between China's automotive innovation and the global market.
+      </Fragment>
     </Sectionhead>
 
     <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
-      <h2 class="font-bold text-3xl text-gray-800">
-        Empowering the world with Astro.
+      <h2 class="font-bold text-3xl text-slate-900">
+        Decoding the New Era of Global Mobility.
       </h2>
       <p class="text-lg leading-relaxed text-slate-500">
-        We're a multi-cultural team from around the world! We come from diverse
-        backgrounds, bringing different personalities, experiences and skills to
-        the job. This is what makes our team so special.
+        AutoChina.org is a premier independent intelligence platform dedicated to providing strategic analysis, real-time data, and deep-dive reporting on China's rapidly evolving automotive landscape. 
+      </p>
+      <p class="text-lg leading-relaxed text-slate-500">
+        In an era where software defines the vehicle and electrification reshapes global energy, we serve as the primary source for international investors, analysts, and automotive professionals to understand the strategic movements of China's key players.
       </p>
     </div>
-    <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12">
-      {
-        publishedTeamMembers.map((teamMemberEntry) => (
-          <div class="group">
-            <div class="w-full aspect-square">
-              <Picture
-                src={teamMemberEntry.data.avatar.src}
-                alt={teamMemberEntry.data.avatar.alt}
-                sizes="(max-width: 800px) 100vw, 400px"
-                width={400}
-                height={400}
-                class="w-full rounded-sm transition group-hover:-translate-y-1 group-hover:shadow-xl bg-white object-cover object-center aspect-square"
-              />
-            </div>
 
-            <div class="mt-4 text-center">
-              <h2 class="text-lg text-gray-800">{teamMemberEntry.data.name}</h2>
-              <h3 class="text-sm text-slate-500">
-                {teamMemberEntry.data.title}
-              </h3>
-            </div>
-          </div>
-        ))
-      }
+    <!-- 核心价值展示区 -->
+    <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-16">
+      <div class="group">
+        <h3 class="font-bold text-emerald-600 text-xl tracking-tight">Independent</h3>
+        <p class="text-slate-500 mt-2 text-sm leading-relaxed">
+          Our research is self-funded and unbiased, ensuring the most accurate and uncompromised market perspective for our global audience.
+        </p>
+      </div>
+      <div class="group">
+        <h3 class="font-bold text-emerald-600 text-xl tracking-tight">Data-Driven</h3>
+        <p class="text-slate-500 mt-2 text-sm leading-relaxed">
+          We leverage large-scale data sets and proprietary analytics to track real-time export trends, supply chain shifts, and sales performance.
+        </p>
+      </div>
+      <div class="group">
+        <h3 class="font-bold text-emerald-600 text-xl tracking-tight">Strategic</h3>
+        <p class="text-slate-500 mt-2 text-sm leading-relaxed">
+          Beyond headlines, we provide the 'why' and 'how' behind every major industry shift, helping you navigate the complexities of China's EV sector.
+        </p>
+      </div>
+    </div>
+
+    <!-- 底部视觉图 -->
+    <div class="mt-20 overflow-hidden rounded-xl shadow-2xl">
+      <img
+        src="https://images.unsplash.com"
+        alt="Automotive Intelligence Research"
+        class="w-full h-[400px] object-cover"
+        loading="lazy"
+      />
     </div>
   </Container>
 </Layout>
