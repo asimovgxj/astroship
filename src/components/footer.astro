@@ -1,19 +1,25 @@
-<footer class="my-20">
-  <p class="text-center text-sm text-slate-500">
-    Copyright © {new Date().getFullYear()} Astroship. All rights reserved.
+---
+// src/components/footer.astro
+---
+
+<footer class="my-20 border-t border-slate-100 pt-10">
+  <p class="text-center text-sm text-slate-500 font-medium">
+    Copyright © {new Date().getFullYear()} AutoChina.org. All rights reserved.
   </p>
-  <!--
-    Can we ask you a favor 🙏
-    Please keep this backlink on your website if possible.
-    or Purchase a commercial license from https://web3templates.com
-  -->
-  <p class="text-center text-xs text-slate-500 mt-1">
-    Made by <a
-      href="https://web3templates.com"
-      target="_blank"
-      rel="noopener"
-      class="hover:underline">
-      Web3Templates
-    </a>
+  
+  <p class="text-center text-xs text-slate-400 mt-2 tracking-wide uppercase">
+    Strategic Intelligence on China's Automotive Global Expansion
   </p>
+
+  <p class="text-center text-xs text-slate-400 mt-4">
+    Independent Research | Data-Driven Insights | Global Perspectives
+  </p>
+  
+  <div class="flex justify-center gap-4 mt-6">
+    <a href="/about" class="text-xs text-slate-400 hover:text-emerald-600 transition">About Us</a>
+    <span class="text-slate-200">|</span>
+    <a href="/contact" class="text-xs text-slate-400 hover:text-emerald-600 transition">Contact</a>
+    <span class="text-slate-200">|</span>
+    <a href="/privacy" class="text-xs text-slate-400 hover:text-emerald-600 transition">Privacy Policy</a>
+  </div>
 </footer>
