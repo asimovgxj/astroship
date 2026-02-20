@@ -10,6 +10,7 @@ export interface Props {
   title: string;
 }
 
+// 建议在 astro.config.mjs 中设置正确的 site 域名
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
 const resolvedImageWithDomain = new URL(
@@ -19,9 +20,10 @@ const resolvedImageWithDomain = new URL(
 
 const { title } = Astro.props;
 
+// 修改点：默认标题改为 AutoChina 智库风格
 const makeTitle = title
-  ? title + " | " + "Astroship"
-  : "Astroship - Starter Template for Astro with Tailwind CSS";
+  ? title + " | " + "AutoChina.org"
+  : "AutoChina - Global Intelligence on China's EV Industry";
 ---
 
 <!doctype html>
@@ -29,28 +31,28 @@ const makeTitle = title
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <!-- 提示：稍后你可以把 /favicon.svg 换成一个绿色的汽车或充电桩图标 -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
       title={makeTitle}
-      description="Astroship is a starter website template for Astro built with TailwindCSS."
+      description="Independent research, strategic intelligence, and real-time insights into China's electric vehicle revolution and global expansion strategy."
       canonical={canonicalURL}
       twitter={{
-        creator: "@surjithctly",
-        site: "@web3templates",
+        creator: "@AutoChina",
+        site: "@AutoChina",
         card: "summary_large_image",
       }}
       openGraph={{
         basic: {
           url: canonicalURL,
           type: "website",
-          title: `Astroship - Starter Template for Astro`,
+          title: `AutoChina - Decoding China's Automotive Future`,
           image: resolvedImageWithDomain,
         },
         image: {
-          alt: "Astroship Homepage Screenshot",
+          alt: "AutoChina Intelligence Platform",
         },
       }}
     />
@@ -60,8 +62,6 @@ const makeTitle = title
     <slot />
     <Footer />
     <style is:global>
-      /* Improve Page speed */
-      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
       img {
         content-visibility: auto;
       }
