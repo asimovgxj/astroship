@@ -1,13 +1,18 @@
 import { z, defineCollection } from 'astro:content';
 
-// 1. 定义 Blog 集合
 const blogCollection = defineCollection({
   schema: z.object({
     draft: z.boolean(),
     title: z.string(),
     snippet: z.string(),
-    // 升级为字符串模式：支持完整 URL 或 Unsplash ID
-    image: z.string().default(''), 
+    // 💡 兼容模式：既支持你以前的 {src, alt} 对象，也支持未来的 "photo-xxx" 字符串
+    image: z.union([
+      z.string(), 
+      z.object({
+        src: z.string(),
+        alt: z.string().default('AutoChina Intelligence'),
+      }),
+    ]).default(''), 
     publishDate: z.string().transform(str => new Date(str)),
     author: z.string().default('AutoChina'),
     category: z.string(),
@@ -15,7 +20,6 @@ const blogCollection = defineCollection({
   }),
 });
 
-// 2. 定义 Team 集合 (报错就是因为之前漏了这一段)
 const teamCollection = defineCollection({
   schema: z.object({
     draft: z.boolean(),
@@ -32,7 +36,6 @@ const teamCollection = defineCollection({
   }),
 });
 
-// 3. 统一导出
 export const collections = {
   'blog': blogCollection,
   'team': teamCollection,
