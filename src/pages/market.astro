@@ -1,0 +1,56 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/container.astro";
+import Sectionhead from "../components/sectionhead.astro";
+
+// 关键逻辑：只抓取属于 Market 目录的文章
+const marketEntries = await getCollection("blog", ({ data }) => {
+  return data.category === "Market";
+});
+
+marketEntries.sort((a, b) => 
+  b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+---
+
+<Layout title="Market Intelligence | AutoChina.org">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Market Intelligence</Fragment>
+      <Fragment slot="desc">
+        Exclusive data analysis and strategic reports on the Chinese BEV competitive landscape.
+      </Fragment>
+    </Sectionhead>
+    <main class="mt-16">
+      <ul class="grid gap-16 max-w-4xl mx-auto">
+        {marketEntries.map((entry) => (
+          <li>
+            <a href={`/blog/${entry.slug}`}>
+              <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center group">
+                <div class="overflow-hidden rounded-md bg-slate-100 aspect-video">
+                  <img
+                    src={entry.data.image.src || entry.data.image}
+                    alt={entry.data.image.alt}
+                    class="w-full h-full object-cover transition duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <div>
+                  <span class="text-emerald-600 uppercase text-xs font-bold tracking-wider">
+                    {entry.data.category}
+                  </span>
+                  <h2 class="text-2xl font-bold mt-2 text-slate-800 group-hover:text-emerald-700 transition">
+                    {entry.data.title}
+                  </h2>
+                  <p class="text-slate-500 mt-2 line-clamp-3 italic">
+                    {entry.data.snippet}
+                  </p>
+                </div>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </main>
+  </Container>
+</Layout>
