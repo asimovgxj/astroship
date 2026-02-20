@@ -1,54 +1,53 @@
 ---
-// @ts-ignore
+// src/components/features.astro
 import { Icon } from "astro-icon/components";
 
 const features = [
   {
-    title: "Bring Your Own Framework",
+    title: "Market Intelligence",
     description:
-      "Build your site using React, Svelte, Vue, Preact, web components, or just plain ol' HTML + JavaScript.",
-    icon: "bx:bxs-briefcase",
+      "Daily updates on sales data, export trends, and policy shifts within China's dynamic automotive sector.",
+    icon: "bx:bxs-bar-chart-alt-2",
   },
   {
-    title: "100% Static HTML, No JS",
+    title: "Battery & Tech",
     description:
-      "Astro renders your entire page to static HTML, removing all JavaScript from your final build by default.",
-    icon: "bx:bxs-window-alt",
+      "In-depth analysis of solid-state batteries, CTP/CTC structures, and the evolving EV supply chain.",
+    icon: "bx:bxs-bolt",
   },
   {
-    title: "On-Demand Components",
+    title: "Software Defined Vehicle",
     description:
-      "Need some JS? Astro can automatically hydrate interactive components when they become visible on the page.  ",
-    icon: "bx:bxs-data",
+      "Tracking the progress of autonomous driving, smart cockpits, and OTA evolution in domestic brands.",
+    icon: "bx:bxs-chip",
   },
   {
-    title: "Broad Integration",
+    title: "Global Expansion",
     description:
-      "Astro supports TypeScript, Scoped CSS, CSS Modules, Sass, Tailwind, Markdown, MDX, and any other npm packages.",
-    icon: "bx:bxs-bot",
+      "Strategic reporting on how BYD, Xiaomi, and NIO are navigating international markets and regulations.",
+    icon: "bx:bxs-planet",
   },
   {
-    title: "SEO Enabled",
+    title: "Supply Chain Resilience",
     description:
-      "Automatic sitemaps, RSS feeds, pagination and collections take the pain out of SEO and syndication. It just works!",
-    icon: "bx:bxs-file-find",
+      "Behind-the-scenes looks at CATL, Huawei, and the key players supporting the EV manufacturing ecosystem.",
+    icon: "bx:bxs-layer",
   },
   {
-    title: "Community",
+    title: "Sustainability Insights",
     description:
-      "Astro is an open source project powered by hundreds of contributors making thousands of individual contributions.",
-    icon: "bx:bxs-user",
+      "Measuring the real impact of electrification on global carbon goals and urban transportation.",
+    icon: "bx:bxs-leaf",
   },
 ];
 ---
 
 <div class="mt-16 md:mt-0">
   <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-    Everything you need to start a website
+    Industry Insights That Matter
   </h2>
   <p class="text-lg mt-4 text-slate-600">
-    Astro comes batteries included. It takes the best parts of state-of-the-art
-    tools and adds its own innovations.
+    AutoChina.org provides the most comprehensive intelligence on the world's leading automotive innovation hub.
   </p>
 </div>
 
@@ -56,11 +55,12 @@ const features = [
   {
     features.map((item) => (
       <div class="flex gap-4 items-start">
-        <div class="mt-1 bg-black rounded-full  p-2 w-8 h-8 shrink-0">
-          <Icon class="text-white" name={item.icon} />
+        <!-- 图标背景改为科技绿 -->
+        <div class="mt-1 bg-emerald-600 rounded-full p-2 w-8 h-8 shrink-0 flex items-center justify-center">
+          <Icon class="text-white w-5 h-5" name={item.icon} />
         </div>
         <div>
-          <h3 class="font-semibold text-lg">{item.title}</h3>{" "}
+          <h3 class="font-semibold text-lg">{item.title}</h3>
           <p class="text-slate-500 mt-2 leading-relaxed">{item.description}</p>
         </div>
       </div>
