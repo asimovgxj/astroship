@@ -4,14 +4,32 @@ import Layout from "../layouts/Layout.astro";
 import Container from "../components/container.astro";
 import Sectionhead from "../components/sectionhead.astro";
 
-// 获取所有分类为 Market 的文章
+// 1. 抓取所有属于 Market 分类的文章
 const marketEntries = await getCollection("blog", ({ data }) => {
   return data.category === "Market";
 });
 
+// 2. 按日期倒序排列
 marketEntries.sort((a, b) => 
   b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 );
+
+// 3. 核心黑科技：万能图片解析器
+// 无论你的 Markdown 填的是对象还是字符串 ID，它都能搞定
+const resolveImg = (imgData) => {
+  if (!imgData) return "";
+  
+  // A. 如果是对象格式 {src: "...", alt: "..."}，提取里面的 src 字符串
+  let rawUrl = typeof imgData === 'object' ? imgData.src : imgData;
+  
+  // B. 如果已经是完整的 HTTP 链接，直接返回使用
+  if (rawUrl.startsWith("http")) return rawUrl;
+  
+  // C. 如果是纯 ID (如 photo-xxx)，执行十六进制拼接大法
+  // \x2f 是斜杠，防止被 AI 显示引擎截断
+  const p1 = "https://images.unsplash.com" + "\x2f";
+  return `${p1}${rawUrl}?auto=format&fit=crop&w=800&q=80`;
+};
 ---
 
 <Layout title="Market Intelligence | AutoChina.org">
@@ -19,7 +37,7 @@ marketEntries.sort((a, b) =>
     <Sectionhead>
       <Fragment slot="title">Market Intelligence</Fragment>
       <Fragment slot="desc">
-        Exclusive data analysis and strategic reports on the Chinese BEV competitive landscape.
+        Strategic insights and real-time analysis on the Chinese BEV competitive landscape.
       </Fragment>
     </Sectionhead>
     <main class="mt-16">
@@ -29,12 +47,10 @@ marketEntries.sort((a, b) =>
             <a href={`/blog/${entry.slug}`}>
               <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center group">
                 <div class="overflow-hidden rounded-md bg-slate-100 aspect-video">
-                  <!-- 这里的 src 逻辑做了多重保障，确保能读到嵌套的 src 属性 -->
+                  <!-- 调用万能解析器，彻底解决图片不亮的问题 -->
                   <img
-                    src={typeof entry.data.image === 'string' 
-                      ? entry.data.image 
-                      : (entry.data.image?.src || "")}
-                    alt={entry.data.image?.alt || "Market Report"}
+                    src={resolveImg(entry.data.image)}
+                    alt={entry.data.title}
                     width="800"
                     height="600"
                     loading="lazy"
