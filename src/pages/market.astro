@@ -30,10 +30,16 @@ marketEntries.sort((a, b) =>
               <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center group">
                 <div class="overflow-hidden rounded-md bg-slate-100 aspect-video">
                   <img
-                    src={entry.data.image.src || entry.data.image}
-                    alt={entry.data.image.alt}
-                    class="w-full h-full object-cover transition duration-300 group-hover:scale-105"
-                  />
+  src={typeof entry.data.image === 'string' 
+    ? entry.data.image 
+    : (entry.data.image?.src || "")}
+  alt={entry.data.image?.alt || "Market Intelligence"}
+  width="800"
+  height="600"
+  loading="lazy"
+  decoding="async"
+  class="w-full h-full object-cover transition duration-300 group-hover:scale-105"
+/>
                 </div>
                 <div>
                   <span class="text-emerald-600 uppercase text-xs font-bold tracking-wider">
