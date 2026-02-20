@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
 
-// Generate a new path for every collection entry
+// 1. 生成所有文章的静态路径
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
   return blogEntries.map((entry) => ({
@@ -12,51 +12,82 @@ export async function getStaticPaths() {
   }));
 }
 
-// Get the entry directly from the prop on render
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+// 2. 核心黑科技：万能图片解析器 (兼容旧对象格式与新字符串 ID)
+const resolveImg = (imgData) => {
+  if (!imgData) return "";
+  
+  // A. 如果是旧的对象格式 {src: "...", alt: "..."}，提取 src 字符串
+  let rawUrl = typeof imgData === 'object' ? imgData.src : imgData;
+  
+  // B. 如果已经是完整的 HTTP 链接，直接返回
+  if (rawUrl.startsWith("http")) return rawUrl;
+  
+  // C. 如果是纯 ID (如 photo-xxx)，执行十六进制拼接大法
+  const p1 = "https://images.unsplash.com" + "\x2f";
+  return `${p1}${rawUrl}?auto=format&fit=crop&w=1200&q=80`;
+};
+
+// 3. 判断是否属于 Market 分类，用于动态调整返回按钮
+const isMarket = entry.data.category === "Market";
 ---
 
 <Layout title={entry.data.title}>
   <Container>
     <div class="mx-auto max-w-3xl mt-14">
-      <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
+      <!-- 统一使用翡翠绿品牌色 -->
+      <span class="text-emerald-600 uppercase tracking-wider text-sm font-bold">
         {entry.data.category}
       </span>
       <h1
-        class="text-4xl lg:text-5xl font-bold lg:tracking-tight mt-1 lg:leading-tight">
+        class="text-4xl lg:text-5xl font-bold lg:tracking-tight mt-1 lg:leading-tight text-slate-800">
         {entry.data.title}
       </h1>
       <div class="flex gap-2 mt-3 items-center flex-wrap md:flex-nowrap">
-        <span class="text-gray-400">
+        <span class="text-slate-400">
           {entry.data.author}
         </span>
-        <span class="text-gray-400">•</span>
+        <span class="text-slate-400">•</span>
         <time
-          class="text-gray-400"
+          class="text-slate-400"
           datetime={entry.data.publishDate.toISOString()}>
           {entry.data.publishDate.toDateString()}
         </time>
-        <span class="text-gray-400 hidden md:block">•</span>
+        <span class="text-slate-400 hidden md:block">•</span>
         <div class="w-full md:w-auto flex flex-wrap gap-3">
           {
             entry.data.tags.map((tag) => (
-              <span class="text-sm text-gray-500">#{tag}</span>
+              <span class="text-sm text-slate-500">#{tag}</span>
             ))
           }
         </div>
       </div>
     </div>
 
-    <div class="mx-auto prose prose-lg mt-6 max-w-3xl">
+    <!-- 文章顶部大图：使用万能解析器，确保图片无论新旧格式都能亮起来 -->
+    <div class="mx-auto max-w-3xl mt-8 overflow-hidden rounded-xl bg-slate-50 shadow-sm">
+       <img 
+         src={resolveImg(entry.data.image)} 
+         alt={entry.data.title}
+         class="w-full object-cover aspect-video" 
+       />
+    </div>
+
+    <!-- 文章正文内容 -->
+    <div class="mx-auto prose prose-lg mt-6 max-w-3xl prose-headings:text-slate-800 prose-p:text-slate-600">
       <Content />
     </div>
-    <div class="text-center mt-8">
+
+    <!-- 💡 返回逻辑闭环：根据分类动态改变返回路径与文案 -->
+    <div class="text-center mt-12 pb-20 border-t border-slate-100 pt-10">
       <a
-        href="/blog"
-        class="bg-gray-100 px-5 py-3 rounded-md hover:bg-gray-200 transition"
-        >← Back to Blog</a
+        href={isMarket ? "/market" : "/blog"}
+        class="bg-emerald-50 text-emerald-700 px-8 py-3 rounded-md hover:bg-emerald-100 transition font-medium inline-flex items-center gap-2"
       >
+        {isMarket ? "← Back to Market Intelligence" : "← Back to Blog"}
+      </a>
     </div>
   </Container>
 </Layout>
