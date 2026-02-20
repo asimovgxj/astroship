@@ -4,39 +4,49 @@ import Container from "@/components/container.astro";
 import Sectionhead from "@/components/sectionhead.astro";
 import Layout from "@/layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
+
+// 记录下：这是最后一项“去 Astro 化”工程，收官之战！
 ---
 
-<Layout title="Contact">
+<Layout title="Contact | AutoChina.org">
   <Container>
     <Sectionhead>
-      <Fragment slot="title">Contact</Fragment>
-      <Fragment slot="desc">We are a here to help.</Fragment>
+      <Fragment slot="title">Contact Us</Fragment>
+      <Fragment slot="desc">Global Business & Media Inquiries.</Fragment>
     </Sectionhead>
 
     <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-16">
       <div>
-        <h2 class="font-medium text-2xl text-gray-800">Contact Astroship</h2>
+        <h2 class="font-bold text-2xl text-slate-800">Get in Touch</h2>
         <p class="text-lg leading-relaxed text-slate-500 mt-3">
-          Have something to say? We are here to help. Fill up the form or send
-          email or call phone.
+          For strategic partnerships, data licensing, or media interviews regarding China's automotive industry, please reach out to our research team.
         </p>
-        <div class="mt-5">
-          <div class="flex items-center mt-2 space-x-2 text-gray-600">
-            <Icon class="text-gray-400 w-4 h-4" name="uil:map-marker" />
-            <span>1734 Sanfransico, CA 93063</span>
-          </div><div class="flex items-center mt-2 space-x-2 text-gray-600">
-            <Icon class="text-gray-400 w-4 h-4" name="uil:envelope" /><a
-              href="mailto:hello@astroshipstarter.com"
-              >hello@astroshipstarter.com</a
-            >
-          </div><div class="flex items-center mt-2 space-x-2 text-gray-600">
-            <Icon class="text-gray-400 w-4 h-4" name="uil:phone" /><a
-              href="tel:+1 (987) 4587 899">+1 (987) 4587 899</a
-            >
+        <div class="mt-8">
+          <div class="flex items-center mt-3 space-x-3 text-slate-600 group">
+            <div class="bg-emerald-50 p-2 rounded-full group-hover:bg-emerald-100 transition">
+               <Icon class="text-emerald-600 w-5 h-5" name="uil:map-marker" />
+            </div>
+            <span class="text-sm">Beijing / Shanghai / Global Remote</span>
+          </div>
+          
+          <div class="flex items-center mt-4 space-x-3 text-slate-600 group">
+            <div class="bg-emerald-50 p-2 rounded-full group-hover:bg-emerald-100 transition">
+              <Icon class="text-emerald-600 w-5 h-5" name="uil:envelope" />
+            </div>
+            <a href="mailto:intelligence@autochina.org" class="text-sm hover:text-emerald-700 transition">
+              intelligence@autochina.org
+            </a>
+          </div>
+
+          <div class="flex items-center mt-4 space-x-3 text-slate-600 group">
+            <div class="bg-emerald-50 p-2 rounded-full group-hover:bg-emerald-100 transition">
+              <Icon class="text-emerald-600 w-5 h-5" name="uil:phone" />
+            </div>
+            <span class="text-sm">Strategic Consulting Available Upon Request</span>
           </div>
         </div>
       </div>
-      <div>
+      <div class="bg-slate-50 p-6 rounded-xl border border-slate-100">
         <Contactform />
       </div>
     </div>
