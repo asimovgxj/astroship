@@ -4,16 +4,30 @@ import Layout from "../layouts/Layout.astro";
 import Container from "../components/container.astro";
 import Sectionhead from "../components/sectionhead.astro";
 
-// 获取并排序博客文章
+// 1. 获取并排序博客文章
 const publishedBlogEntries = await getCollection("blog");
 publishedBlogEntries.sort((a, b) => 
   b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 );
+
+// 2. 核心黑科技：万能图片解析器 (同步 market.astro 的逻辑)
+const resolveImg = (imgData) => {
+  if (!imgData) return "";
+  
+  // A. 如果是对象格式，提取 src
+  let rawUrl = typeof imgData === 'object' ? imgData.src : imgData;
+  
+  // B. 如果是完整链接，直接返回
+  if (rawUrl.startsWith("http")) return rawUrl;
+  
+  // C. 如果是纯 ID，执行十六进制拼接
+  const p1 = "https://images.unsplash.com" + "\x2f";
+  return `${p1}${rawUrl}?auto=format&fit=crop&w=800&q=80`;
+};
 ---
 
 <Layout title="Industry Intelligence | AutoChina.org">
   <Container>
-    <!-- Sectionhead 文案升级，提升专业感 -->
     <Sectionhead>
       <Fragment slot="title">Industry Intelligence</Fragment>
       <Fragment slot="desc">
@@ -27,11 +41,10 @@ publishedBlogEntries.sort((a, b) =>
             <a href={`/blog/${blogPostEntry.slug}`}>
               <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center group">
                 <div class="overflow-hidden rounded-md bg-slate-100 aspect-video">
+                  <!-- 这里改用了 resolveImg 函数调用 -->
                    <img
-                    src={typeof blogPostEntry.data.image === 'string' 
-                      ? blogPostEntry.data.image 
-                      : (blogPostEntry.data.image?.src || "")}
-                    alt={blogPostEntry.data.image?.alt || "AutoChina Report"}
+                    src={resolveImg(blogPostEntry.data.image)}
+                    alt={blogPostEntry.data.title}
                     width="800"
                     height="600"
                     loading="lazy"
@@ -40,7 +53,6 @@ publishedBlogEntries.sort((a, b) =>
                   />
                 </div>
                 <div>
-                  <!-- 翡翠绿分类标签 -->
                   <span class="text-emerald-600 uppercase text-xs font-bold tracking-wider">
                     {blogPostEntry.data.category}
                   </span>
