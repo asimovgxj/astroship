@@ -1,4 +1,4 @@
 User-agent: *
-Allow: /
+Disallow: /
 
-Sitemap: http://astroship.web3templates.com/sitemap-index.xml
+# 特别标注：如果你以后绑定了正式域名，记得把这个文件删掉或改为 Allow
