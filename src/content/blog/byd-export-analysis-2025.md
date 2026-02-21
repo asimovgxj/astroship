@@ -22,6 +22,7 @@ According to our field observations, the share of export volume relative to tota
 The growth in overseas markets is not merely incremental—it is foundational to the brand's margin preservation. The following data highlights the strategic reweighting of BYD's sales portfolio:
 
 
+
 | Period | Domestic Sales (Est.) | Export Volume (Est.) | Export Share (%) |
 | :--- | :--- | :--- | :--- |
 | **Q1 2024** | 560,000 | 63,000 | 10.1% |
@@ -29,33 +30,44 @@ The growth in overseas markets is not merely incremental—it is foundational to
 | **Q1 2025** | 620,000 | 135,000 | 17.8% |
 | **Q4 2025 (Proj)** | 850,000 | 210,000 | **19.8%** |
 
-<!-- 可视化组件 1: 翡翠绿高精数据进度条 -->
+<!-- 可视化组件 1: 翡翠绿高精数据进度条 (已补齐至四个季度) -->
 <div class="my-8 p-6 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
-  <h4 class="text-center font-bold text-slate-700 mb-6 uppercase tracking-tight text-sm">BYD Export Share Growth (2024-2025)</h4>
+  <h4 class="text-center font-bold text-slate-700 mb-6 uppercase tracking-tight text-sm">BYD Export Share Growth (Full Timeline)</h4>
   <div class="space-y-4">
+    <!-- Q1 2024 -->
     <div class="flex items-center gap-4">
       <span class="w-16 text-[10px] text-slate-500 font-bold uppercase">Q1 '24</span>
-      <div class="flex-1 h-6 bg-slate-200 rounded-full overflow-hidden">
+      <div class="flex-1 h-5 bg-slate-200 rounded-full overflow-hidden">
         <div class="h-full bg-emerald-500 transition-all" style="width: 10.1%"></div>
       </div>
-      <span class="w-12 text-xs font-bold text-emerald-600">10.1%</span>
+      <span class="w-12 text-xs font-bold text-emerald-600 text-right">10.1%</span>
     </div>
+    <!-- Q3 2024 (新增补齐) -->
+    <div class="flex items-center gap-4">
+      <span class="w-16 text-[10px] text-slate-500 font-bold uppercase">Q3 '24</span>
+      <div class="flex-1 h-5 bg-slate-200 rounded-full overflow-hidden">
+        <div class="h-full bg-emerald-500 transition-all" style="width: 10.8%"></div>
+      </div>
+      <span class="w-12 text-xs font-bold text-emerald-600 text-right">10.8%</span>
+    </div>
+    <!-- Q1 2025 -->
     <div class="flex items-center gap-4">
       <span class="w-16 text-[10px] text-slate-500 font-bold uppercase">Q1 '25</span>
-      <div class="flex-1 h-6 bg-slate-200 rounded-full overflow-hidden">
+      <div class="flex-1 h-5 bg-slate-200 rounded-full overflow-hidden">
         <div class="h-full bg-emerald-500 transition-all" style="width: 17.8%"></div>
       </div>
-      <span class="w-12 text-xs font-bold text-emerald-600">17.8%</span>
+      <span class="w-12 text-xs font-bold text-emerald-600 text-right">17.8%</span>
     </div>
+    <!-- Q4 2025 -->
     <div class="flex items-center gap-4">
       <span class="w-16 text-[10px] text-slate-500 font-bold uppercase">Q4 '25</span>
-      <div class="flex-1 h-6 bg-slate-200 rounded-full overflow-hidden">
+      <div class="flex-1 h-5 bg-slate-200 rounded-full overflow-hidden">
         <div class="h-full bg-emerald-600 transition-all" style="width: 19.8%"></div>
       </div>
-      <span class="w-12 text-xs font-bold text-emerald-700">19.8%</span>
+      <span class="w-12 text-xs font-bold text-emerald-700 text-right">19.8%</span>
     </div>
   </div>
-  <p class="mt-6 text-[10px] text-slate-400 italic text-center uppercase tracking-widest">Data Source: CPCA & AutoChina Intelligence Analysis</p>
+  <p class="mt-6 text-[10px] text-slate-400 italic text-center uppercase tracking-widest">Visualized by AutoChina Intelligence Unit</p>
 </div>
 
 ### 2. Regional Growth Engines
