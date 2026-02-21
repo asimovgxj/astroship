@@ -6,33 +6,20 @@ import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
 // 针对 AutoChina.org 重新定义的行业菜单
 const menuitems = [
-  {
-    title: "Market",
-    path: "/market", 
-  },
+  { title: "Market", path: "/market" },
+  { title: "Policy", path: "/blog" }, // 后续在 market.astro 里通过过滤展示 Policy
+  { title: "Supply Chain", path: "/blog" },
   {
     title: "Brands",
     path: "#",
     children: [
-      { title: "BYD", path: "/blog" },
-      { title: "Xiaomi", path: "/blog" },
-      { title: "NIO / XPeng", path: "/blog" },
-      { title: "Geely / GWM", path: "/blog" },
+      { title: "BYD", path: "/blog" }, // BYD 作为一个独立标签
+      { title: "Brand Tracker", path: "/blog" }, // 其他品牌集合
     ],
   },
-  {
-    title: "Technology",
-    path: "/blog",
-  },
-  {
-    title: "Insights",
-    path: "/blog",
-  },
-  {
-    title: "About",
-    path: "/about",
-  },
+  { title: "About", path: "/about" },
 ];
+
 ---
 
 <Container>
