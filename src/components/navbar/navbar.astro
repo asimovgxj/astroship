@@ -66,12 +66,15 @@ const menuitems = [
       </MenuItems>
     </Astronav>
     <div>
-      <div class="hidden lg:flex items-center gap-4">
-        <!-- 商业化：将原来的登录按钮改为订阅按钮 -->
-        <Link href="/contact" size="md" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-md transition duration-200 border-none">
-          Subscribe
-        </Link>
-      </div>
-    </div>
+  <div class="hidden lg:flex items-center gap-4">
+    <!-- 商业化：将跳转路径修改为首页底部的订阅锚点 -->
+    <Link 
+      href="/#subscribe-section" 
+      size="md" 
+      class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-md transition duration-200 border-none shadow-sm font-medium">
+      Subscribe
+    </Link>
+  </div>
+</div>
   </header>
 </Container>
