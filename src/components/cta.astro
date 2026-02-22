@@ -1,23 +1,48 @@
 ---
-// 导入 Link 组件，解决 "Link is not defined" 报错
-// 注意：如果你的路径不是 ../components/ui/link.astro，请根据实际情况微调
-import Link from "./ui/link.astro";
+// src/components/cta.astro
+// 100% 保持原始模板的 Emerald-900 视觉比例，仅将按钮升级为“输入框+按钮”组合
 ---
 
 <div
-  class="bg-emerald-900 p-8 md:px-20 md:py-20 mt-20 mx-auto max-w-5xl rounded-2xl flex flex-col items-center text-center shadow-xl">  
-  <h2 class="text-white text-4xl md:text-6xl tracking-tight font-bold">
-    Stay Ahead of China's EV Market.
+  class="bg-emerald-900 p-8 md:px-20 md:py-20 mt-20 mx-auto max-w-5xl rounded-2xl flex flex-col items-center text-center shadow-xl border border-white/5">
+  
+  <h2 class="text-white text-4xl md:text-6xl tracking-tight font-bold leading-tight">
+    Stay Ahead of China's Automotive Market.
   </h2>
-  <p class="text-emerald-100/70 mt-4 text-lg md:text-xl max-w-2xl">
+  
+  <p class="text-emerald-100/70 mt-6 text-lg md:text-xl max-w-2xl">
     Subscribe to our weekly intelligence report for exclusive data, policy analysis, and strategic trends in the Chinese automotive industry.
   </p>
-  <div class="flex mt-8">
-    <Link
-      href="/contact"
-      style="inverted"
-      class="bg-white text-emerald-900 hover:bg-emerald-50 px-8 py-3 rounded-md font-bold transition">
+
+  <!-- 工业化订阅表单：左右排列布局 -->
+  <form
+    action="https://buttondown.email"
+    method="post"
+    target="popupwindow"
+    onsubmit="window.open('https://buttondown.email', 'popupwindow')"
+    class="flex flex-col md:flex-row w-full max-w-md mt-10 gap-3">
+    
+    <!-- 输入框：采用淡白透明色，既能区分背景，又保持高级感 -->
+    <input
+      type="email"
+      name="email"
+      id="bd-email"
+      placeholder="Enter your professional email..."
+      required
+      class="flex-1 px-5 py-3 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-emerald-100/40 focus:outline-none focus:ring-2 focus:ring-white/50 transition shadow-inner"
+    />
+    
+    <input type="hidden" value="1" name="embed" />
+    
+    <!-- 订阅按钮：维持原始“白底绿字”的视觉重心 -->
+    <button
+      type="submit"
+      class="bg-white text-emerald-900 hover:bg-emerald-50 px-8 py-3 rounded-md font-bold transition shadow-lg whitespace-nowrap">
       Subscribe for Free
-    </Link>
-  </div>
+    </button>
+  </form>
+
+  <p class="text-emerald-200/30 mt-4 text-[10px] uppercase tracking-[0.2em] font-medium">
+    Independent Intelligence • Weekly Delivery
+  </p>
 </div>
