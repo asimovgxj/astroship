@@ -1,30 +1,34 @@
 ---
-// 使用物理路径导入，确保 GitHub 构建环境 100% 识别
-import Container from "../components/container.astro";
-import Cta from "../components/cta.astro";
-import Features from "../components/features.astro";
-import Hero from "../components/hero.astro";  
-import Logos from "../components/logos.astro";
-import Layout from "../layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import Cta from "@/components/cta.astro";
+import Features from "@/components/features.astro";
+import Hero from "@/components/hero.astro";
+import Logos from "@/components/logos.astro";
+import Layout from "@/layouts/Layout.astro";
 ---
 
-<Layout title="AutoChina Intelligence | Decoding China's Mobility Juggernaut">
-  <main>
-    <Container>
-      <!-- 英雄区：第一印象 -->
-      <Hero />
-      
-      <!-- 特色介绍：智库能力 -->
-      <Features />
-      
-      <!-- 合作/认可标志 -->
-      <Logos />
-      
-      <!-- 核心订阅区：Juggernaut 捕鼠器 -->
-      <!-- 我们在这里包裹一个 ID，方便导航栏锚点跳转 -->
-      <div id="cta">
-        <Cta />
-      </div>
-    </Container>
-  </main>
+<Layout title="">
+  <Container>
+    <Hero />
+    <Features />
+    <Logos />
+    <Cta />
+  </Container>
+</Layout>
+---
+import Container from "@/components/container.astro";
+import Cta from "@/components/cta.astro";
+import Features from "@/components/features.astro";
+import Hero from "@/components/hero.astro";
+import Logos from "@/components/logos.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="">
+<Container>
+<Hero />
+<Features />
+<Logos />
+<Cta />
+</Container>
 </Layout>
