@@ -5,12 +5,12 @@ import { Icon } from "astro-icon/components";
 // 本版本采用纯代码 SVG 方案，彻底解决图片加载、截断及背景色块问题
 ---
 
-<!-- 仅修改了这一行的 pt-16->pt-8, pb-8->pb-4, md:pt-12->md:pt-6, md:pb-24->md:pb-10 -->
+<!-- 极限压缩版：pt-4 pb-2, md:pt-4 md:pb-4 -->
 <main
-  class="grid lg:grid-cols-2 place-items-center pt-8 pb-4 md:pt-6 md:pb-10">
+  class="grid lg:grid-cols-2 place-items-center pt-4 pb-2 md:pt-4 md:pb-4 transition-all">
   
   <!-- 右侧插画区域：100% 呼吸感、无缝衔接 -->
-  <div class="py-6 md:order-1 hidden md:block w-full flex justify-center">
+  <div class="py-2 md:order-1 hidden md:block w-full flex justify-center">
     <div class="relative w-full max-w-lg aspect-square flex items-center justify-center">
       <!-- 底层柔光装饰 -->
       <div class="absolute inset-0 bg-emerald-50 rounded-full blur-3xl opacity-30 animate-pulse"></div>
@@ -26,7 +26,7 @@ import { Icon } from "astro-icon/components";
         <!-- 能量舱/车顶 -->
         <path d="M140 145C140 145 155 90 215 90C275 90 290 145 290 145" stroke="#059669" stroke-width="6" stroke-linecap="round"/>
         
-        <!-- 科技能量线条 -->
+        <!--科技能量线条 -->
         <path d="M180 180H250" stroke="white" stroke-width="4" stroke-linecap="round" class="animate-pulse"/>
         <circle cx="215" cy="180" r="8" fill="white" class="animate-ping"/>
         
