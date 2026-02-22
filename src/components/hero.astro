@@ -2,42 +2,61 @@
 import Link from "@/components/ui/link.astro";
 import { Icon } from "astro-icon/components";
 
-// 本版本采用纯代码 SVG 方案，彻底解决图片加载、截断及背景色块问题
+// 本版本采用“静态智库”架构 SVG：高复杂度、全产业链透视、无动画干扰
 ---
 
-<!-- 极限压缩版：pt-4 pb-2, md:pt-4 md:pb-4 -->
 <main
   class="grid lg:grid-cols-2 place-items-center pt-4 pb-2 md:pt-4 md:pb-4 transition-all">
   
-  <!-- 右侧插画区域：100% 呼吸感、无缝衔接 -->
+  <!-- 右侧插画区域：静态、高信息密度、高度增加 150% -->
   <div class="py-2 md:order-1 hidden md:block w-full flex justify-center">
-    <div class="relative w-full max-w-lg aspect-square flex items-center justify-center">
-      <!-- 底层柔光装饰 -->
-      <div class="absolute inset-0 bg-emerald-50 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+    <div class="relative w-full max-w-lg flex items-center justify-center">
+      <!-- 底层柔光装饰：稍微拉高范围以匹配新 SVG -->
+      <div class="absolute inset-0 bg-emerald-50 rounded-full blur-3xl opacity-20"></div>
       
-      <!-- 极简科技感 SVG：纯代码构建，绿色能量与未来车身轮廓 -->
-      <svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org" class="relative z-10 drop-shadow-2xl">
-        <!-- 模拟底盘与投影 -->
-        <ellipse cx="200" cy="240" rx="120" ry="20" fill="#10b981" fill-opacity="0.1"/>
+      <!-- 智库级架构 SVG：400x450 (高度显著增加) -->
+      <svg width="400" height="450" viewBox="0 0 400 450" fill="none" xmlns="http://www.w3.org" class="relative z-10 drop-shadow-xl text-emerald-600">
+        <!-- 1. 全球化雷达监测背景 (Global Tracking) -->
+        <circle cx="200" cy="220" r="180" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4 4" opacity="0.3"/>
+        <circle cx="200" cy="220" r="130" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 2" opacity="0.3"/>
+        <line x1="200" y1="40" x2="200" y2="400" stroke="currentColor" stroke-width="0.5" opacity="0.2"/>
+        <line x1="20" y1="220" x2="380" y2="220" stroke="currentColor" stroke-width="0.5" opacity="0.2"/>
+
+        <!-- 2. 核心架构：模块化底盘 (Modular Platform) -->
+        <rect x="80" y="300" width="240" height="15" rx="4" fill="#334155" opacity="0.8"/>
+        <rect x="100" y="285" width="200" height="15" rx="2" fill="currentColor" fill-opacity="0.2" stroke="currentColor" stroke-width="1"/>
+        <text x="165" y="297" fill="currentColor" class="text-[8px] font-bold opacity-60">BATTERY CELL-TO-PACK</text>
+
+        <!-- 3. 极简车身流线 (Stylized Silhouette) -->
+        <path d="M60 280C60 280 80 180 160 160C240 140 320 180 340 280" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <path d="M120 165C120 165 140 100 200 100C260 100 280 165 280 165" stroke="currentColor" stroke-width="2" stroke-dasharray="6 3"/>
+
+        <!-- 4. 传感器与情报监测点 (Intelligence Nodes) -->
+        <!-- LiDAR 点 -->
+        <rect x="190" y="90" width="20" height="10" rx="2" fill="#334155"/>
+        <path d="M200 90V60" stroke="#334155" stroke-width="1"/>
+        <circle cx="200" cy="55" r="3" fill="#10b981"/>
         
-        <!-- 极简车身轮廓 (翡翠绿) -->
-        <path d="M80 220C80 220 90 160 140 145C190 130 240 130 290 145C340 160 350 220 350 220H80Z" fill="#10b981" fill-opacity="0.9"/>
+        <!-- 数据节点 A -->
+        <circle cx="100" cy="220" r="5" fill="white" stroke="currentColor" stroke-width="2"/>
+        <text x="55" y="224" fill="#64748b" class="text-[9px] font-bold italic">SUPPLY CHAIN</text>
         
-        <!-- 能量舱/车顶 -->
-        <path d="M140 145C140 145 155 90 215 90C275 90 290 145 290 145" stroke="#059669" stroke-width="6" stroke-linecap="round"/>
-        
-        <!--科技能量线条 -->
-        <path d="M180 180H250" stroke="white" stroke-width="4" stroke-linecap="round" class="animate-pulse"/>
-        <circle cx="215" cy="180" r="8" fill="white" class="animate-ping"/>
-        
-        <!-- 充电接口/基站抽象 -->
-        <rect x="340" y="100" width="10" height="120" rx="5" fill="#334155"/>
-        <path d="M345 130C345 130 300 130 290 145" stroke="#334155" stroke-width="4" stroke-dasharray="8 4"/>
+        <!-- 数据节点 B -->
+        <circle cx="300" cy="220" r="5" fill="white" stroke="currentColor" stroke-width="2"/>
+        <text x="310" y="224" fill="#64748b" class="text-[9px] font-bold italic">MARKET DATA</text>
+
+        <!-- 5. 全球化流向箭头 (Export Vector) -->
+        <path d="M200 320L200 400M200 400L190 390M200 400L210 390" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+        <text x="168" y="425" fill="#10b981" class="text-[10px] font-bold uppercase tracking-widest">Global Pivot</text>
+
+        <!-- 6. 核心情报中心 -->
+        <rect x="140" y="200" width="120" height="40" rx="4" fill="white" stroke="currentColor" stroke-width="1.5" class="drop-shadow-sm"/>
+        <text x="162" y="225" fill="#065f46" class="text-[11px] font-bold" style="font-family: sans-serif;">AUTO CHINA</text>
       </svg>
     </div>
   </div>
 
-  <!-- 左侧文案区域 -->
+  <!-- 左侧文案区域：保持不变 -->
   <div class="z-20">
     <h1
       class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter text-slate-900 leading-tight">
@@ -47,7 +66,6 @@ import { Icon } from "astro-icon/components";
       Independent research, strategic intelligence, and real-time insights into China's electric vehicle revolution and global expansion strategy.
     </p>
     <div class="mt-6 flex flex-col sm:flex-row gap-3">
-      <!-- 翡翠绿主按钮 -->
       <Link
         href="/blog"
         size="lg"
@@ -56,7 +74,6 @@ import { Icon } from "astro-icon/components";
         <Icon class="text-white w-5 h-5" name="bx:bxs-zap" />
         Explore Insights
       </Link>
-      <!-- 次按钮 -->
       <Link
         size="lg"
         style="outline"
