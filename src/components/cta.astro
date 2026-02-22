@@ -1,14 +1,11 @@
 ---
-// src/components/cta.astro
-// 无需额外 import，直接使用 HTML 原生表单以确保极致速度
----
----
-// 原始版本：包含一个 Link 组件，点击跳转到 /contact
+// 导入 Link 组件，解决 "Link is not defined" 报错
+// 注意：如果你的路径不是 ../components/ui/link.astro，请根据实际情况微调
 import Link from "./ui/link.astro";
 ---
 
 <div
-  class="bg-emerald-900 p-8 md:px-20 md:py-20 mt-20 mx-auto max-w-5xl rounded-2xl flex flex-col items-center text-center shadow-xl">
+  class="bg-emerald-900 p-8 md:px-20 md:py-20 mt-20 mx-auto max-w-5xl rounded-2xl flex flex-col items-center text-center shadow-xl">  
   <h2 class="text-white text-4xl md:text-6xl tracking-tight font-bold">
     Stay Ahead of China's EV Market.
   </h2>
@@ -23,46 +20,4 @@ import Link from "./ui/link.astro";
       Subscribe for Free
     </Link>
   </div>
-</div>
-
-<div
-  class="bg-emerald-900 p-8 md:px-20 md:py-24 mt-20 mx-auto max-w-5xl rounded-3xl flex flex-col items-center text-center shadow-2xl border border-emerald-800">
-  
-  <h2 class="text-white text-4xl md:text-6xl tracking-tight font-bold max-w-3xl leading-tight">
-    Decoding China's Automotive Juggernaut.
-  </h2>
-  
-  <p class="text-emerald-100/80 mt-6 text-lg md:text-xl max-w-2xl leading-relaxed">
-    Join the 0.1% of global analysts receiving our high-fidelity intelligence on trade policies, supply chains, and market shifts. 
-  </p>
-
-  <!-- Buttondown 工业化订阅表单 -->
-  <form
-    action="https://buttondown.email"
-    method="post"
-    target="popupwindow"
-    onsubmit="window.open('https://buttondown.email', 'popupwindow')"
-    class="relative flex flex-col md:flex-row w-full max-w-md mt-10 gap-3">
-    
-    <input
-      type="email"
-      name="email"
-      id="bd-email"
-      placeholder="Enter your professional email..."
-      required
-      class="flex-1 px-5 py-4 rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-inner"
-    />
-    
-    <input type="hidden" value="1" name="embed" />
-    
-    <button
-      type="submit"
-      class="bg-white text-emerald-900 hover:bg-emerald-50 px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap shadow-lg">
-      Get Insights
-    </button>
-  </form>
-
-  <p class="text-emerald-200/50 mt-4 text-xs uppercase tracking-widest font-medium">
-    Weekly Intelligence • No Spam • Independent Analysis
-  </p>
 </div>
