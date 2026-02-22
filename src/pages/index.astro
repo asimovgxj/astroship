@@ -12,6 +12,9 @@ import Layout from "@/layouts/Layout.astro";
     <Hero />
 <Features />
     <Logos />
-    <Cta />
-  </Container>
+<!-- 在 Cta 外面套一个带 id 的 div -->
+<div id="subscribe-section">
+  <Cta />
+</div>
+</Container>
 </Layout>
