@@ -18,7 +18,7 @@ While global automotive discourse remains fixated on the EV transition, a massiv
 ### 1. The $6,000 Fiscal Wall (Utilization Fee)
 The 70-85% hike in the **Russia car scrapping tax** (Utilization Fee) has erected a formidable barrier. For a standard 1.5L to 2.0L engine, this fee has surged from approximately 178,000 RUB to **556,000 RUB** (roughly $6,000 USD). This fixed cost, combined with 15% Customs and 20% VAT, often results in a vehicle retailing for **120,000 CNY in Shanghai** being priced at **260,000 CNY** in a Moscow showroom. At this level, exporters are essentially acting as tax collection agents for the Russian state, significantly compressing the **ICE export margins** once enjoyed by domestic players.
 
-<!-- 📊 SVG 保持不变 -->
+<!-- 📊 SVG  -->
 <div class="my-8 flex justify-center">
   <svg width="400" height="250" viewBox="0 0 400 250" fill="none" xmlns="http://www.w3.org" class="w-full max-w-lg rounded-lg border border-slate-100 shadow-sm">
     <rect width="400" height="250" fill="#f8fafc"/>
