@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "The 'Double Standard' Barrier: Asymmetric Narrative Control and EV Safety in China (2024-2025)"
+title: "The 'Double Standard' Barrier: Asymmetric Narrative Control and EV Safety in China"
 snippet: "How domestic EV giants leverage administrative support and diversified legal strategies to manage safety crises, while Tesla operates in a starkly different media environment."
 image: "photo-1492144534655-ae79c964c9d7"
 publishDate: "2026-02-20"
