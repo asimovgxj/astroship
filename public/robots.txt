@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://autochina.org
+Sitemap: https://autochina.org/sitemap-index.xml
