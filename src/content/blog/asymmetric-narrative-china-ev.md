@@ -53,4 +53,3 @@ At **AutoChina Intelligence**, we identify this as a **"Systemic Market Distorti
 **Disclaimer:** *The information provided in this report is based on publicly available news, social media reports, and third-party industry analysis. AutoChina Intelligence does not claim these as absolute facts but as a reflection of current industry discourse and documented media trends. Readers are encouraged to verify information through official regulatory channels.*
 
 ---
-**← [Back to Market Intelligence](/market)**
