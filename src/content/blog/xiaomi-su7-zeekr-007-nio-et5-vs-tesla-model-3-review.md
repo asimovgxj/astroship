@@ -24,7 +24,7 @@ The debut from tech giant Xiaomi, the SU7 Max, represents a paradigm shift. Beyo
 The evaluation results indicate that while the Tesla Model 3 maintains its lead in powertrain efficiency and global brand equity, Chinese domestic models are redefining the "premium" standard through superior interior luxury and software-defined features. 
 
 ---
-**Related Analysis:** [The 'Double Standard' in China's EV Safety Narratives](/blog/tesla-vs-byd-narrative-control)
+**Related Analysis:** [The 'Double Standard' in China's EV Safety Narratives](/blog/asymmetric-narrative-china-ev)
 
 ---
 **Disclaimer:** *This report is based on independent field data and technical analysis verified by AutoChina Research.*
