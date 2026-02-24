@@ -29,7 +29,6 @@ The growth in overseas markets is not merely incremental—it is foundational to
 | **Q1 2025** | 620,000 | 135,000 | 17.8% |
 | **Q4 2025 (Proj)** | 850,000 | 210,000 | **19.8%** |
 
-<!-- 可视化组件 1: 翡翠绿高精数据进度条 -->
 <div class="my-8 p-6 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
   <h4 class="text-center font-bold text-slate-700 mb-6 uppercase tracking-tight text-sm">BYD Export Share Growth (Full Timeline)</h4>
   <div class="space-y-4">
@@ -75,7 +74,6 @@ Our **analysis** suggests that BYD’s growth is concentrated in three "High-Yie
 ### 3. Supply Chain Mastery: The "Ro-Ro" Advantage
 **A factor that cannot be ignored** in this surge is BYD’s investment in its own logistics. In 2025, the deployment of the **"BYD Explorer No. 1"** and subsequent Ro-Ro (Roll-on/Roll-off) vessels significantly reduced the "Logistics Tax" that previously hampered export margins.
 
-<!-- 可视化组件 2: 高精全球流向矢量图 -->
 <div class="my-12 p-4 border-y border-slate-100 bg-white">
   <p class="text-center text-[10px] font-bold text-slate-400 mb-4 uppercase tracking-widest">BYD Global Supply Chain Integration</p>
   <svg viewBox="0 0 800 160" class="w-full h-auto fill-none stroke-emerald-600">
