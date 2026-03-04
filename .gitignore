@@ -18,5 +18,13 @@ pnpm-debug.log*
 .env
 .env.production
 
+# private SEO and scripts
+backup_seo/
+*.py
+*.md
+.seorules
+.writtingrules
+.cursorrules
+
 # macOS-specific files
 .DS_Store
