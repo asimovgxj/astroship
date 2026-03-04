@@ -8,7 +8,7 @@ export default defineConfig({
   // 核心：必须是 https 协议
   site: 'https://autochina.org',
   base: "/",
-  outDir: "dist",
+  outDir: "docs",
   integrations: [mdx(), sitemap(), icon()],
   vite: {
     plugins: [tailwindcss()],
