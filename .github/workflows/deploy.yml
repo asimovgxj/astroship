@@ -35,6 +35,9 @@ jobs:
         env:
           DEPLOY_TARGET: GITHUB_PAGES
 
+      - name: List docs directory
+        run: ls -R docs
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
