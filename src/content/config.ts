@@ -5,7 +5,7 @@ const blogCollection = defineCollection({
     draft: z.boolean(),
     title: z.string(),
     snippet: z.string(),
-    // 💡 兼容模式：既支持你以前的 {src, alt} 对象，也支持未来的 "photo-xxx" 字符串
+    // Compatibility mode: supports both previous {src, alt} objects and future "photo-xxx" strings
     image: z.union([
       z.string(), 
       z.object({

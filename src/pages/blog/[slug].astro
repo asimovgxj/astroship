@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
 
-// 1. 生成所有文章的静态路径
+// 1. Generate static paths for all posts
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
   return blogEntries.map((entry) => ({
@@ -15,29 +15,29 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
-// 2. 核心黑科技：万能图片解析器 (兼容旧对象格式与新字符串 ID)
+// 2. Universal image resolver (compatible with old object format and new string IDs)
 const resolveImg = (imgData) => {
   if (!imgData) return "";
   
-  // A. 如果是旧的对象格式 {src: "...", alt: "..."}，提取 src 字符串
+  // A. If old object format {src: "...", alt: "..."}, extract src string
   let rawUrl = typeof imgData === 'object' ? imgData.src : imgData;
   
-  // B. 如果已经是完整的 HTTP 链接，直接返回
+  // B. If already a full HTTP link, return directly
   if (rawUrl.startsWith("http")) return rawUrl;
   
-  // C. 如果是纯 ID (如 photo-xxx)，执行十六进制拼接大法
+  // C. If pure ID (e.g., photo-xxx), perform hex concatenation
   const p1 = "https://images.unsplash.com" + "\x2f";
   return `${p1}${rawUrl}?auto=format&fit=crop&w=1200&q=80`;
 };
 
-// 3. 判断是否属于 Market 分类，用于动态调整返回按钮
+// 3. Check if it belongs to Market category for dynamic return button
 const isMarket = entry.data.category === "Market";
 ---
 
 <Layout title={entry.data.title}>
   <Container>
     <div class="mx-auto max-w-3xl mt-14">
-      <!-- 统一使用翡翠绿品牌色 -->
+      <!-- Consistent emerald brand color -->
       <span class="text-emerald-600 uppercase tracking-wider text-sm font-bold">
         {entry.data.category}
       </span>
@@ -66,7 +66,7 @@ const isMarket = entry.data.category === "Market";
       </div>
     </div>
 
-    <!-- 文章顶部大图：使用万能解析器，确保图片无论新旧格式都能亮起来 -->
+    <!-- Post top image: using universal resolver for compatibility -->
     <div class="mx-auto max-w-3xl mt-8 overflow-hidden rounded-xl bg-slate-50 shadow-sm">
        <img 
          src={resolveImg(entry.data.image)} 
@@ -75,12 +75,12 @@ const isMarket = entry.data.category === "Market";
        />
     </div>
 
-    <!-- 文章正文内容 -->
+    <!-- Post main content -->
     <div class="mx-auto prose prose-lg mt-6 max-w-3xl prose-headings:text-slate-800 prose-p:text-slate-600">
       <Content />
     </div>
 
-    <!-- 💡 返回逻辑闭环：根据分类动态改变返回路径与文案 -->
+    <!-- Return logic: dynamically change return path and text based on category -->
     <div class="text-center mt-12 pb-20 border-t border-slate-100 pt-10">
       <a
         href={isMarket ? "/market" : "/blog"}

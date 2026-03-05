@@ -1,22 +1,22 @@
 ---
 // src/components/cta.astro
-// 保持原始视觉比例，仅将内部按钮升级为“输入框 + 订阅按钮”左右排列布局
+// Maintain original visual proportions, upgrade internal button to "input + subscribe button" horizontal layout
 ---
 
 <div
   class="bg-emerald-900 p-8 md:px-20 md:py-20 mt-20 mx-auto max-w-5xl rounded-2xl flex flex-col items-center text-center shadow-xl border border-white/5">
   
-  <!-- 1. 100% 还原你满意的原始标题 -->
+  <!-- 1. Restore original title -->
   <h2 class="text-white text-4xl md:text-6xl tracking-tight font-bold">
     Stay Ahead of China's Auto Market.
   </h2>
   
-  <!-- 2. 100% 还原你满意的原始描述文案 -->
+  <!-- 2. Restore original description copy -->
   <p class="text-emerald-100/70 mt-4 text-lg md:text-xl max-w-2xl text-center">
     Subscribe to our intelligence reports for exclusive data, policy analysis, and strategic trends in the Chinese automotive industry.
   </p>
 
-  <!-- 3. 左右排列的订阅表单：输入框(左) + 按钮(右) -->
+  <!-- 3. Horizontal subscription form: Input (left) + Button (right) -->
   <form
     action="https://buttondown.email/api/emails/embed-subscribe/autochina"
     method="post"
@@ -24,7 +24,7 @@
     onsubmit="window.open('https://buttondown.email', 'popupwindow')"
     class="flex flex-col md:flex-row w-full max-w-md mt-10 gap-3">
     
-    <!-- 输入框：半透明白色，与深绿背景区分 -->
+    <!-- Input: semi-transparent white, distinct from deep green background -->
     <input
       type="email"
       name="email"
@@ -35,7 +35,7 @@
     
     <input type="hidden" value="1" name="embed" />
     
-    <!-- 订阅按钮：维持原始“白底绿字”的视觉重心 -->
+    <!-- Subscribe button: maintain original "white background green text" visual focus -->
     <button
       type="submit"
       class="bg-white text-emerald-900 hover:bg-emerald-50 px-8 py-3 rounded-md font-bold transition shadow-lg whitespace-nowrap">

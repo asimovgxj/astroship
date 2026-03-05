@@ -4,18 +4,18 @@ import Link from "@/components/ui/link.astro";
 import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
-// 针对 AutoChina.org 重新定义的行业菜单
+// Redefined industry menu for AutoChina.org
 const menuitems = [
   { title: "Market", path: "/market" },
-  { title: "Policy", path: "/blog" }, // 后续在 market.astro 里通过过滤展示 Policy
+  { title: "Policy", path: "/blog" }, // Later filtered in market.astro to show Policy
   { title: "Supply Chain", path: "/blog" },
   {
     title: "Brands",
     path: "#",
     children: [
       { title: "TESLA", path: "/blog" }, 
-{ title: "BYD", path: "/blog" }, // BYD 作为一个独立标签
-      { title: "Brand Tracker", path: "/blog" }, // 其他品牌集合
+{ title: "BYD", path: "/blog" }, // BYD as an independent tag
+      { title: "Brand Tracker", path: "/blog" }, // Other brands collection
     ],
   },
   { title: "About", path: "/about" },
@@ -27,7 +27,7 @@ const menuitems = [
   <header class="flex flex-col lg:flex-row justify-between items-center my-5">
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
-        <!-- Logo 修改为 AutoChina，增加翡翠绿科技感配色 -->
+        <!-- Logo changed to AutoChina with emerald green tech-style color -->
         <a href="/" class="text-xl tracking-tighter"
           ><span class="font-bold text-slate-900">Auto</span><span
             class="text-emerald-600 font-semibold">China</span
@@ -67,7 +67,7 @@ const menuitems = [
     </Astronav>
     <div>
   <div class="hidden lg:flex items-center gap-4">
-    <!-- 商业化：将跳转路径修改为首页底部的订阅锚点 -->
+    <!-- Commercialization: change navigation path to subscription anchor at homepage bottom -->
     <Link 
       href="/#subscribe-section" 
       size="md" 
