@@ -22,9 +22,10 @@ pnpm-debug.log*
 backup_seo/
 *.py
 # *.md (Commented out to allow blog content versioning)
-.seorules
-.writtingrules
-.cursorrules
+# Rules below are now versioned for AI consistency
+# .seorules
+# .writtingrules
+# .cursorrules
 
 # macOS-specific files
 .DS_Store
