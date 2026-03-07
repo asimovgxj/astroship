@@ -2,8 +2,17 @@
 
 当你收到“修改并推送”指令，但运行 `git status` 却显示 `nothing to commit, working tree clean` 时，请严格按照以下步骤排查，不要直接放弃或认为任务已完成。
 
-## 第零步：建立环境坐标 (防止 EISDIR 报错)
+## 第零步：建立环境坐标 (防止 EISDIR 报错与路径迷失)
 在执行任何读写前，必须确认你的“当前位置”：
+
+### 1. 路径精准搜索 (拒绝盲目 dir)
+如果你只知道文件夹名字(如 `astroship`)但不知道父路径，**严禁**直接 `dir D:\` 这种全盘扫描。
+- **推荐做法**：使用带过滤条件的搜索命令。
+  - **Windows (PowerShell)**: `dir D:\ -Filter "*astroship*" -Recurse -Directory -ErrorAction SilentlyContinue | Select-Object FullName`
+  - **CMD**: `dir D:\*astroship* /s /ad /b`
+- **目的**：通过过滤脚本直接获取绝对路径，不要用肉眼去长列表中翻找。
+
+### 2. 环境定位
 1. **环境定位**：运行 `pwd` (或 Windows 的 `cd`) 确认你的 CWD。
 2. **区分目录与文件**：
    - 如果 `read_file` 报错 `EISDIR`：说明你读的是个**文件夹**。绝对不要重复尝试，立即改用 `list_files` 查看其内部。
