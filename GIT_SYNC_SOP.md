@@ -9,8 +9,8 @@
 如果你只知道文件夹名字(如 `astroship`)但不知道父路径，**严禁**直接 `dir D:\` 这种全盘扫描。
 - **推荐做法**：使用带过滤条件的搜索命令。
   - **Windows (PowerShell)**: `dir D:\ -Filter "*astroship*" -Recurse -Directory -ErrorAction SilentlyContinue | Select-Object FullName`
-  - **CMD**: `dir D:\*astroship* /s /ad /b`
-- **目的**：通过过滤脚本直接获取绝对路径，不要用肉眼去长列表中翻找。
+  - **CMD (优先)**: `for /f "delims=" %i in ('dir /s /ad /b D:\*astroship*') do @echo %i` (或 `dir D:\*astroship* /s /ad /b`)
+- **目的**：通过搜索脚本直接获取绝对路径，不要用肉面去长列表中翻找。
 
 ### 2. 环境定位
 1. **环境定位**：运行 `pwd` (或 Windows 的 `cd`) 确认你的 CWD。

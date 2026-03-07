@@ -2,8 +2,10 @@
 
 ## 0. 动态工作目录定位 (针对跨环境/路径名变更)
 - **原则**：严禁硬编码父路径（如 `D:\Jessica_AI_Power`）。
-- **执行规约**：若当前终端不在 `astroship` 根目录，必须立即执行以下动态定位逻辑，严禁向用户询问路径：
-  `$repo = (dir D:\ -Filter "astroship" -Recurse -Directory -ErrorAction SilentlyContinue | Select-Object -First 1).FullName; if ($repo) { cd $repo }`
+- **执行规约**：若当前终端不在 `astroship` 根目录，必须立即执行以下流程，严禁向用户询问路径：
+  1. 优先使用 `list_files` 搜索可能的父级目录。 
+  2. 使用 CMD 命令定位：`for /f "delims=" %i in ('dir /s /ad /b D:\*astroship*') do cd /d "%i" & goto :found`;
+  3. 若定位成功，继续执行后续步骤。
 
 ## 1. 环境安全与防崩溃
 - **URL 保险**：修改或新建页面前，必须检查 `astro.config.mjs`。确保 `site` 配置在本地环境下有保底值（如：`site: isGithubPages ? '...' : 'http://localhost:4321'`），严禁导致 `Invalid URL` 报错。
@@ -16,8 +18,8 @@
 ## 3. 自动化推送流程 (核心执行指令)
 - **触发条件**：当接收到“推送/发布/同步/Push”等指令时，立即执行。
 - **故障强制规约 (关键)**：若执行 `git status` 或 `commit` 时提示 "nothing to commit" 却存在磁盘文件更新，**必须且立即**读取并执行 `GIT_SYNC_SOP.md` 中的排查流程。
-- **执行手段**：使用 PowerShell 纯命令，跳过 IDE 脚本：
-  `git add -A ; git commit -m "update" ; git push origin main`
+- **执行手段**：使用 CMD/Git 纯命令：
+  `git add -A && git commit -m "update" && git push origin main`
 - **静默要求**：
   - **严禁交互**：禁止弹出 Vim、Nano 或任何需要手动输入的编辑器界面。
   - **强制静默**：无需等待用户确认，直接跑完所有 Git 指令。
