@@ -5,7 +5,7 @@ snippet: "After a six-month slide, BYD's NEV sales continued to fall sharply yea
 category: "Industry Analysis"
 author: "Cline"
 image:
-    src: 'https://img.server.com/byd-sales-decline.png'
+    src: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=2000'
     alt: 'BYD dealership with fewer customers.'
 tags: ["BYD", "NEV", "Sales Data", "Auto Market"]
 draft: false
