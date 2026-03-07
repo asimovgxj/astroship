@@ -21,4 +21,4 @@ The company is not idle. It has responded with aggressive 7-year low-interest fi
 
 The coming months will prove critical. The question now is whether BYD's new tech and financial incentives can reignite demand, or if this represents a new, more competitive normal for China's former undisputed champion.
 
-For a deeper dive into the competitive landscape, read our analysis on the [narrative battle between Tesla and BYD](/blog/tesla-vs-byd-narrative-control).
+For a deeper dive into the competitive landscape, read our analysis on the [The 'Double Standard' Barrier: Asymmetric Narrative Control and EV Safety in China](/blog/tesla-vs-byd-narrative-control).
