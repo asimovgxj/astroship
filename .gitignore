@@ -21,7 +21,7 @@ pnpm-debug.log*
 # private SEO and scripts
 backup_seo/
 *.py
-*.md
+# *.md (Commented out to allow blog content versioning)
 .seorules
 .writtingrules
 .cursorrules
