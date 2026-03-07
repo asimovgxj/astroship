@@ -1,5 +1,10 @@
 # Trae 全自动更文与推送准则 (非程序员模式)
 
+## 0. 动态工作目录定位 (针对跨环境/路径名变更)
+- **原则**：严禁硬编码父路径（如 `D:\Jessica_AI_Power`）。
+- **执行规约**：若当前终端不在 `astroship` 根目录，必须立即执行以下动态定位逻辑，严禁向用户询问路径：
+  `$repo = (dir D:\ -Filter "astroship" -Recurse -Directory -ErrorAction SilentlyContinue | Select-Object -First 1).FullName; if ($repo) { cd $repo }`
+
 ## 1. 环境安全与防崩溃
 - **URL 保险**：修改或新建页面前，必须检查 `astro.config.mjs`。确保 `site` 配置在本地环境下有保底值（如：`site: isGithubPages ? '...' : 'http://localhost:4321'`），严禁导致 `Invalid URL` 报错。
 
