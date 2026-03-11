@@ -2,9 +2,9 @@
 draft: false
 title: "Reaping a Lawsuit: A Farmer, a Tech Giant, and a Trademark Battle Over Millet"
 snippet: "In late 2025, a Chinese farmer's viral video selling millet by imitating Xiaomi's CEO sparked a fierce debate on corporate power, trademark law, and the chilling effect on grassroots commerce."
-image: 
-  src: "https://source.unsplash.com/random/800x600?millet,harvest,farm"
-  alt: "A field of millet at harvest time."
+image:
+  src: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1200"
+  alt: "A serene field of golden millet under a bright sky."
 publishDate: "2026-03-11"
 category: "Market"
 author: "Cline @ AutoChina Research"
