@@ -8,17 +8,26 @@ import "../styles/global.css";
 
 export interface Props {
   title: string;
+  description?: string;
+  image?: string;
+  robots?: string;
 }
 
 // Ensure site domain is correctly set in astro.config.mjs
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+const defaultDescription =
+  "Independent research, strategic intelligence, and real-time insights into China's electric vehicle revolution and global expansion strategy.";
 
 const resolvedImageWithDomain = new URL(
   "/opengraph.jpg",
   Astro.site
 ).toString();
 
-const { title } = Astro.props;
+const { title, description, image, robots } = Astro.props;
+const resolvedDescription = description || defaultDescription;
+const resolvedImage = image ? new URL(image, Astro.site).toString() : resolvedImageWithDomain;
+const pageRobots = robots || "index, follow";
 
 // Default title style for AutoChina
 const makeTitle = title
@@ -37,8 +46,9 @@ const makeTitle = title
 
     <SEO
       title={makeTitle}
-      description="Independent research, strategic intelligence, and real-time insights into China's electric vehicle revolution and global expansion strategy."
+      description={resolvedDescription}
       canonical={canonicalURL}
+      robots={pageRobots}
       twitter={{
         creator: "@AutoChina",
         site: "@AutoChina",
@@ -49,7 +59,7 @@ const makeTitle = title
           url: canonicalURL,
           type: "website",
           title: `AutoChina - Decoding China's Automotive Future`,
-          image: resolvedImageWithDomain,
+          image: resolvedImage,
         },
         image: {
           alt: "AutoChina Intelligence Platform",

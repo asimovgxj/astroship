@@ -7,14 +7,16 @@ import Logos from "@/components/logos.astro";
 import Layout from "@/layouts/Layout.astro";
 ---
 
-<Layout title="">
+<Layout
+  title=""
+  description="AutoChina delivers strategic intelligence, market analysis, and EV industry reporting on China's automotive innovation, exports, and global expansion."
+>
   <Container>
     <Hero />
-<Features />
+    <Features />
     <Logos />
-<!-- Wrap Cta in a div with an id for navigation -->
-<div id="subscribe-section">
-  <Cta />
-</div>
-</Container>
+    <div id="subscribe-section">
+      <Cta />
+    </div>
+  </Container>
 </Layout>
