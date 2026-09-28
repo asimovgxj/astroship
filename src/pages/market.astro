@@ -6,7 +6,7 @@ import Sectionhead from "../components/sectionhead.astro";
 
 // 1. Fetch all articles belonging to the Market category
 const marketEntries = await getCollection("blog", ({ data }) => {
-  return data.category === "Market";
+  return data.category === "Market" && !data.draft;
 });
 
 // 2. Sort by date in descending order

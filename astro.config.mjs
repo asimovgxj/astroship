@@ -14,10 +14,9 @@ export default defineConfig({
     '/sitemap-main.xml': '/sitemap-index.xml',
 
     // 博客文章修正 (旧地址 -> 新地址)
-    '/blog/chinese-ev-review-2025/': '/blog/tesla-vs-china-bev-2025',
     '/blog/chinese-ev-review-2025': '/blog/tesla-vs-china-bev-2025',
-    '/blog/asymmetric-narrative-china-ev/': '/blog/tesla-vs-byd-narrative-control',
-    '/blog/russia-windfall/': '/blog/contentrussia-car-scrapping-tax-ice-profit',
+    '/blog/asymmetric-narrative-china-ev': '/blog/tesla-vs-byd-narrative-control',
+    '/blog/russia-windfall': '/blog/contentrussia-car-scrapping-tax-ice-profit',
 
     // 已删除的旧页面 -> 全部导向首页
     '/seagull-detail.html': '/',

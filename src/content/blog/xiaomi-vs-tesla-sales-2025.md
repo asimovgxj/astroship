@@ -8,7 +8,7 @@ image: {
 }
 publishDate: "2026-03-03"
 category: "Analysis"
-author: "Astroship"
+author: "AutoChina"
 tags: [Xiaomi, Tesla, EV, China, Sales]
 ---
 

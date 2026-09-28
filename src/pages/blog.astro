@@ -5,7 +5,7 @@ import Container from "../components/container.astro";
 import Sectionhead from "../components/sectionhead.astro";
 
 // 1. Fetch and sort blog posts
-const publishedBlogEntries = await getCollection("blog");
+const publishedBlogEntries = await getCollection("blog", ({ data }) => !data.draft);
 publishedBlogEntries.sort((a, b) => 
   b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 );

@@ -5,7 +5,7 @@ import Container from "@/components/container.astro";
 
 // 1. Generate static paths for all posts
 export async function getStaticPaths() {
-  const blogEntries = await getCollection("blog");
+  const blogEntries = await getCollection("blog", ({ data }) => !data.draft);
   return blogEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },

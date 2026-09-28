@@ -7,7 +7,7 @@ image:
   alt: "EV innovation discussion"
 publishDate: "2026-03-03"
 category: "Opinion"
-author: "Astroship"
+author: "AutoChina"
 tags: [EV, Innovation, Tesla, Industry]
 ---
 
