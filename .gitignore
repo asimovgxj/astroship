@@ -1,11 +1,11 @@
 # build output
 dist/
+docs/
 .output/
 .astro
 
 # dependencies
 node_modules/
-backup_seo/
 
 # logs
 npm-debug.log*
@@ -13,24 +13,21 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-
 # environment variables
 .env
 .env.production
 
-# private SEO and scripts
+# automation pipeline (kept locally, not published)
+automation/
+
+# private SEO backups and scripts
 backup_seo/
 *.py
-!automation/*.py
-automation/run.log
-automation/_probe_*.py
-automation/out/*.txt
-# *.md (Commented out to allow blog content versioning)
-# Rules below are now PRIVATE and kept only locally
+
+# local-only rule / SOP files
 .seorules
 .writtingrules
 .cursorrules
-.writtingrules
 GIT_SYNC_SOP.md
 
 # macOS-specific files
