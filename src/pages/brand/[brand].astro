@@ -32,7 +32,15 @@ interface Props {
 const { brand, posts } = Astro.props;
 ---
 
-<Layout title={brand.title} description={brand.description}>
+<Layout
+  title={brand.title}
+  description={brand.description}
+  breadcrumbs={[
+    { title: "Home", href: "/" },
+    { title: "Brands", href: "/brands" },
+    { title: brand.name },
+  ]}
+>
   <Container>
     <Breadcrumb
       items={[

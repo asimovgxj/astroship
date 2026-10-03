@@ -20,6 +20,10 @@ const brandsWithCounts = BRANDS.map((brand) => ({
 <Layout
   title="Brand Tracker – Chinese EV Brands"
   description="Browse every brand we cover: BYD, Tesla, Xiaomi, NIO, and more. See the latest articles, sales data, and analysis for each company."
+  breadcrumbs={[
+    { title: "Home", href: "/" },
+    { title: "Brands" },
+  ]}
 >
   <Container>
     <Breadcrumb

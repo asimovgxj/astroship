@@ -21,6 +21,9 @@ export default defineConfig({
     '/blog/asymmetric-narrative-china-ev': '/blog/tesla-vs-byd-narrative-control',
     '/blog/russia-windfall': '/blog/contentrussia-car-scrapping-tax-ice-profit',
 
+    // Removed template pages -> redirect to home
+    '/pricing': '/',
+
     // 已删除的旧页面 -> 全部导向首页
     '/seagull-detail.html': '/',
     '/t03-detail.html': '/',
@@ -35,7 +38,21 @@ export default defineConfig({
     '/detail.html': '/',
     '/M9.html': '/'
   },
-  integrations: [mdx(), sitemap(), icon()],
+  integrations: [
+    mdx(),
+    sitemap({
+      serialize(item) {
+        // Add lastmod to blog article pages based on build date;
+        // the actual publishDate will be injected via the page's <lastmod> if available.
+        // For article pages, set lastmod to today (build date) as a baseline.
+        if (item.url.includes('/blog/')) {
+          item.lastmod = new Date().toISOString();
+        }
+        return item;
+      },
+    }),
+    icon(),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },

@@ -35,6 +35,14 @@ const entryBrands = getBrandsForEntry(entry);
   description={entry.data.snippet}
   image={resolveImg(entry.data.image, 1200)}
   robots="index, follow"
+  type="article"
+  publishDate={entry.data.publishDate}
+  author={entry.data.author}
+  breadcrumbs={[
+    { title: "Home", href: "/" },
+    { title: entry.data.category, href: catHref },
+    { title: entry.data.title },
+  ]}
 >
   <Container>
     <!-- Breadcrumb -->
@@ -59,9 +67,9 @@ const entryBrands = getBrandsForEntry(entry);
         {entry.data.title}
       </h1>
       <div class="flex gap-2 mt-3 items-center flex-wrap md:flex-nowrap">
-        <span class="text-slate-400">
+        <a href="/about#author" class="text-slate-400 hover:text-emerald-600 transition">
           {entry.data.author}
-        </span>
+        </a>
         <span class="text-slate-400">•</span>
         <time
           class="text-slate-400"
@@ -94,6 +102,10 @@ const entryBrands = getBrandsForEntry(entry);
        <img
          src={resolveImg(entry.data.image, 1200)}
          alt={entry.data.title}
+         width="1200"
+         height="630"
+         fetchpriority="high"
+         loading="eager"
          class="w-full object-cover aspect-video"
        />
     </div>

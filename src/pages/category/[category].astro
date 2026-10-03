@@ -32,7 +32,14 @@ interface Props {
 const { cat, posts } = Astro.props;
 ---
 
-<Layout title={cat.title} description={cat.description}>
+<Layout
+  title={cat.title}
+  description={cat.description}
+  breadcrumbs={[
+    { title: "Home", href: "/" },
+    { title: cat.name },
+  ]}
+>
   <Container>
     <Breadcrumb
       items={[

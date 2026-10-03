@@ -1,69 +1,152 @@
 ---
-import { SEO } from "astro-seo";
 import Footer from "@/components/footer.astro";
 import Navbar from "@/components/navbar/navbar.astro";
 import "@fontsource-variable/inter/index.css";
 import "@fontsource-variable/bricolage-grotesque";
 import "../styles/global.css";
 
+export interface BreadcrumbItem {
+  title: string;
+  href?: string;
+}
+
 export interface Props {
   title: string;
   description?: string;
   image?: string;
   robots?: string;
+  type?: "website" | "article";
+  publishDate?: Date;
+  author?: string;
+  breadcrumbs?: BreadcrumbItem[];
 }
 
-// Ensure site domain is correctly set in astro.config.mjs
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+const siteUrl = Astro.site!.toString().replace(/\/$/, "");
 
 const defaultDescription =
   "Independent research, strategic intelligence, and real-time insights into China's electric vehicle revolution and global expansion strategy.";
 
-const resolvedImageWithDomain = new URL(
-  "/opengraph.jpg",
-  Astro.site
-).toString();
+const resolvedImageWithDomain = `${siteUrl}/opengraph.jpg`;
 
-const { title, description, image, robots } = Astro.props;
+const {
+  title,
+  description,
+  image,
+  robots,
+  type = "website",
+  publishDate,
+  author,
+  breadcrumbs,
+} = Astro.props;
+
 const resolvedDescription = description || defaultDescription;
-const resolvedImage = image ? new URL(image, Astro.site).toString() : resolvedImageWithDomain;
+const resolvedImage = image
+  ? new URL(image, Astro.site).toString()
+  : resolvedImageWithDomain;
 const pageRobots = robots || "index, follow";
 
-// Default title style for AutoChina
 const makeTitle = title
-  ? title + " | " + "AutoChina.org"
+  ? title + " | AutoChina.org"
   : "AutoChina - Global Intelligence on China's EV Industry";
+
+const isHomepage = Astro.url.pathname === "/" || Astro.url.pathname === "";
+
+// --- JSON-LD ---
+const organizationLD = {
+  "@type": "Organization",
+  name: "AutoChina Research",
+  url: siteUrl,
+  logo: `${siteUrl}/favicon.svg`,
+};
+
+const jsonLdBlocks: object[] = [];
+
+// WebSite (homepage only)
+if (isHomepage) {
+  jsonLdBlocks.push({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "AutoChina",
+    url: siteUrl,
+    publisher: organizationLD,
+  });
+}
+
+// Article
+if (type === "article" && publishDate) {
+  jsonLdBlocks.push({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description: resolvedDescription,
+    image: resolvedImage,
+    datePublished: publishDate.toISOString(),
+    author: { ...organizationLD, name: author || "AutoChina Research" },
+    publisher: organizationLD,
+    mainEntityOfPage: canonicalURL,
+  });
+}
+
+// BreadcrumbList
+if (breadcrumbs && breadcrumbs.length > 0) {
+  jsonLdBlocks.push({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbs.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.title,
+      ...(item.href ? { item: new URL(item.href, Astro.site).toString() } : {}),
+    })),
+  });
+}
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <SEO
-      title={makeTitle}
-      description={resolvedDescription}
-      canonical={canonicalURL}
-      robots={pageRobots}
-      twitter={{
-        creator: "@AutoChina",
-        site: "@AutoChina",
-        card: "summary_large_image",
-      }}
-      openGraph={{
-        basic: {
-          url: canonicalURL,
-          type: "website",
-          title: `AutoChina - Decoding China's Automotive Future`,
-          image: resolvedImage,
-        },
-        image: {
-          alt: "AutoChina Intelligence Platform",
-        },
-      }}
-    />
+    <title>{makeTitle}</title>
+    <meta name="description" content={resolvedDescription} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content={pageRobots} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={makeTitle} />
+    <meta property="og:description" content={resolvedDescription} />
+    <meta property="og:type" content={type === "article" ? "article" : "website"} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={resolvedImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title || "AutoChina Intelligence Platform"} />
+    <meta property="og:site_name" content="AutoChina.org" />
+    {type === "article" && publishDate && (
+      <meta property="article:published_time" content={publishDate.toISOString()} />
+    )}
+    {type === "article" && (
+      <meta property="article:author" content={author || "AutoChina Research"} />
+    )}
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@AutoChina" />
+    <meta name="twitter:creator" content="@AutoChina" />
+    <meta name="twitter:title" content={makeTitle} />
+    <meta name="twitter:description" content={resolvedDescription} />
+    <meta name="twitter:image" content={resolvedImage} />
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="AutoChina RSS Feed" href="/rss.xml" />
+
+    <!-- JSON-LD -->
+    {jsonLdBlocks.map((block) => (
+      <script type="application/ld+json" set:html={JSON.stringify(block)} />
+    ))}
   </head>
   <body>
     <Navbar />

@@ -1,0 +1,80 @@
+name: Weekly AutoChina draft
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"        # Monday 06:00 UTC = 14:00 Beijing
+  workflow_dispatch:
+    inputs:
+      week:
+        description: "ISO week label (e.g. 2026-W39). Leave blank for current week."
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: weekly-draft
+  cancel-in-progress: false
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: automation/requirements.txt
+
+      - name: Install
+        run: pip install -r automation/requirements.txt
+
+      - name: Resolve week label
+        id: week
+        run: |
+          W="${{ github.event.inputs.week }}"
+          if [ -z "$W" ]; then W=$(python -c "import datetime as d;y,w,_=d.date.today().isocalendar();print(f'{y}-W{w:02d}')"); fi
+          echo "label=$W" >> "$GITHUB_OUTPUT"
+
+      - name: Collect sources
+        working-directory: automation
+        run: python collect.py --week "${{ steps.week.outputs.label }}"
+
+      - name: Write draft
+        id: draft
+        working-directory: automation
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_MODEL: ${{ vars.ANTHROPIC_MODEL || 'claude-sonnet-4-5' }}
+        run: python draft.py --week "${{ steps.week.outputs.label }}"
+
+      - name: Read review note
+        id: note
+        run: |
+          {
+            echo 'body<<EOF'
+            cat "automation/out/${{ steps.week.outputs.label }}.review.md"
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: draft/${{ steps.week.outputs.label }}
+          delete-branch: true
+          commit-message: "draft(${{ steps.week.outputs.label }}): ${{ steps.draft.outputs.title }}"
+          title: "[Draft ${{ steps.week.outputs.label }}] ${{ steps.draft.outputs.title }}"
+          body: ${{ steps.note.outputs.body }}
+          labels: |
+            auto-draft
+            ${{ steps.draft.outputs.flagged != '0' && 'needs-fact-check' || 'numbers-verified' }}
+          add-paths: |
+            src/content/blog/${{ steps.draft.outputs.slug }}.md
+            automation/data/${{ steps.week.outputs.label }}.json
+            automation/out/${{ steps.week.outputs.label }}.review.md
+            automation/out/${{ steps.week.outputs.label }}.plan.json

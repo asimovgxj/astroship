@@ -21,23 +21,6 @@ const blogCollection = defineCollection({
   }),
 });
 
-const teamCollection = defineCollection({
-  schema: z.object({
-    draft: z.boolean(),
-    name: z.string(),
-    title: z.string(),
-    avatar: z.union([
-      z.string(),
-      z.object({
-        src: z.string(),
-        alt: z.string().default('Team Member'),
-      }),
-    ]),
-    publishDate: z.string().transform(str => new Date(str)),
-  }),
-});
-
 export const collections = {
   'blog': blogCollection,
-  'team': teamCollection,
 };
