@@ -14,8 +14,9 @@ const blogCollection = defineCollection({
       }),
     ]).default(''), 
     publishDate: z.string().transform(str => new Date(str)),
-    author: z.string().default('AutoChina'),
-    category: z.string(),
+    author: z.string().default('AutoChina Research'),
+    // Keep in sync with CATEGORIES in src/utils/taxonomy.ts
+    category: z.enum(['Market', 'Policy', 'Supply Chain', 'Brands', 'Opinion']),
     tags: z.array(z.string()),
   }),
 });

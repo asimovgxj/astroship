@@ -4,7 +4,7 @@ title: "Russia: The ICE Export Dividend and the Scrapping Tax Impact"
 snippet: "How the 2025 Russia car scrapping tax is reshaping Chinese ICE vehicle export profitability and market margins."
 image: "photo-1494412519320-aa613dfb7738"
 publishDate: "2026-02-23"
-category: "Market"
+category: "Policy"
 author: "AutoChina Research"
 tags: ["Russia", "ICE Profit", "Scrapping Tax", "Trade"]
 ---

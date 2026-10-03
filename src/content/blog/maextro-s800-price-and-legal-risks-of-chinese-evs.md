@@ -4,8 +4,8 @@ title: "The Cost of Silence: Maextro S800 and the Legal Risks of Chinese EV Expa
 snippet: "How the surge in defamation lawsuits from Chinese EV giants like Xiaomi and Maextro is creating a trust deficit in Western markets."
 image: "https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?auto=format&fit=crop&w=1000&q=80"
 publishDate: "2026-03-04"
-category: "Market"
-author: "AutoChina Intelligence"
+category: "Policy"
+author: "AutoChina Research"
 tags: ["Maextro S800", "Xiaomi Auto", "Legal Risks", "Chinese EVs", "Reputation Management"]
 ---
 

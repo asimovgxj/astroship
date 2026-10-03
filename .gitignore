@@ -21,6 +21,10 @@ pnpm-debug.log*
 # private SEO and scripts
 backup_seo/
 *.py
+!automation/*.py
+automation/run.log
+automation/_probe_*.py
+automation/out/*.txt
 # *.md (Commented out to allow blog content versioning)
 # Rules below are now PRIVATE and kept only locally
 .seorules

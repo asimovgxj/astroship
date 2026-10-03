@@ -1,0 +1,44 @@
+---
+import { resolveImg, type BlogEntry } from "@/utils/taxonomy";
+
+export interface Props {
+  posts: BlogEntry[];
+}
+
+const { posts } = Astro.props;
+---
+
+<ul class="grid gap-16 max-w-4xl mx-auto">
+  {
+    posts.map((entry) => (
+      <li>
+        <a href={`/blog/${entry.slug}`}>
+          <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center group">
+            <div class="overflow-hidden rounded-md bg-slate-100 aspect-video">
+              <img
+                src={resolveImg(entry.data.image)}
+                alt={entry.data.title}
+                width="800"
+                height="600"
+                loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover transition duration-300 group-hover:scale-105"
+              />
+            </div>
+            <div>
+              <span class="text-emerald-600 uppercase text-xs font-bold tracking-wider">
+                {entry.data.category}
+              </span>
+              <h2 class="text-2xl font-bold mt-2 text-slate-800 group-hover:text-emerald-700 transition duration-200">
+                {entry.data.title}
+              </h2>
+              <p class="text-slate-500 mt-2 line-clamp-3 italic leading-relaxed">
+                {entry.data.snippet}
+              </p>
+            </div>
+          </div>
+        </a>
+      </li>
+    ))
+  }
+</ul>

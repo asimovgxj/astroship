@@ -1,51 +1,59 @@
 ---
-import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
+import Breadcrumb from "@/components/breadcrumb.astro";
+import {
+  getPublishedPosts,
+  getRelatedPosts,
+  getCategoryByName,
+  categoryUrl,
+  resolveImg,
+  slugify,
+  getBrandsForEntry,
+  brandUrl,
+} from "@/utils/taxonomy";
 
 // 1. Generate static paths for all posts
 export async function getStaticPaths() {
-  const blogEntries = await getCollection("blog", ({ data }) => !data.draft);
-  return blogEntries.map((entry) => ({
+  const posts = await getPublishedPosts();
+  return posts.map((entry) => ({
     params: { slug: entry.slug },
-    props: { entry },
+    props: { entry, allPosts: posts },
   }));
 }
 
-const { entry } = Astro.props;
+const { entry, allPosts } = Astro.props;
 const { Content } = await entry.render();
-
-// 2. Universal image resolver (compatible with old object format and new string IDs)
-const resolveImg = (imgData) => {
-  if (!imgData) return "";
-  
-  // A. If old object format {src: "...", alt: "..."}, extract src string
-  let rawUrl = typeof imgData === 'object' ? imgData.src : imgData;
-  
-  // B. If already a full HTTP link, return directly
-  if (rawUrl.startsWith("http")) return rawUrl;
-  
-  // C. If pure ID (e.g., photo-xxx), perform hex concatenation
-  const p1 = "https://images.unsplash.com" + "\x2f";
-  return `${p1}${rawUrl}?auto=format&fit=crop&w=1200&q=80`;
-};
-
-// 3. Check if it belongs to Market category for dynamic return button
-const isMarket = entry.data.category === "Market";
+const related = getRelatedPosts(entry, allPosts, 3);
+const cat = getCategoryByName(entry.data.category);
+const catHref = categoryUrl(entry.data.category);
+const entryBrands = getBrandsForEntry(entry);
 ---
 
 <Layout
   title={entry.data.title}
   description={entry.data.snippet}
-  image={resolveImg(entry.data.image)}
+  image={resolveImg(entry.data.image, 1200)}
   robots="index, follow"
 >
   <Container>
-    <div class="mx-auto max-w-3xl mt-14">
-      <!-- Consistent emerald brand color -->
-      <span class="text-emerald-600 uppercase tracking-wider text-sm font-bold">
+    <!-- Breadcrumb -->
+    <Breadcrumb
+      items={[
+        { title: "Home", href: "/" },
+        { title: entry.data.category, href: catHref },
+        { title: entry.data.title },
+      ]}
+      class="mt-8"
+    />
+
+    <div class="mx-auto max-w-3xl mt-6">
+      <a
+        href={catHref}
+        class="text-emerald-600 uppercase tracking-wider text-sm font-bold hover:text-emerald-800 transition"
+      >
         {entry.data.category}
-      </span>
+      </a>
       <h1
         class="text-4xl lg:text-5xl font-bold lg:tracking-tight mt-1 lg:leading-tight text-slate-800">
         {entry.data.title}
@@ -63,20 +71,30 @@ const isMarket = entry.data.category === "Market";
         <span class="text-slate-400 hidden md:block">•</span>
         <div class="w-full md:w-auto flex flex-wrap gap-3">
           {
-            entry.data.tags.map((tag) => (
-              <span class="text-sm text-slate-500">#{tag}</span>
-            ))
+            entry.data.tags.map((tag) => {
+              const matched = entryBrands.find((b) => b.match.test(String(tag)));
+              return matched ? (
+                <a
+                  href={brandUrl(matched.slug)}
+                  class="text-sm text-emerald-600 hover:text-emerald-800 transition"
+                >
+                  #{tag}
+                </a>
+              ) : (
+                <span class="text-sm text-slate-500">#{tag}</span>
+              );
+            })
           }
         </div>
       </div>
     </div>
 
-    <!-- Post top image: using universal resolver for compatibility -->
+    <!-- Post top image -->
     <div class="mx-auto max-w-3xl mt-8 overflow-hidden rounded-xl bg-slate-50 shadow-sm">
-       <img 
-         src={resolveImg(entry.data.image)} 
+       <img
+         src={resolveImg(entry.data.image, 1200)}
          alt={entry.data.title}
-         class="w-full object-cover aspect-video" 
+         class="w-full object-cover aspect-video"
        />
     </div>
 
@@ -85,13 +103,45 @@ const isMarket = entry.data.category === "Market";
       <Content />
     </div>
 
-    <!-- Return logic: dynamically change return path and text based on category -->
+    <!-- Related articles -->
+    {related.length > 0 && (
+      <div class="mx-auto max-w-3xl mt-14 border-t border-slate-100 pt-10">
+        <h2 class="text-2xl font-bold text-slate-800 mb-6">Related Articles</h2>
+        <ul class="grid gap-8 sm:grid-cols-3">
+          {related.map((r) => (
+            <li>
+              <a href={`/blog/${r.slug}`} class="group block">
+                <div class="overflow-hidden rounded-md bg-slate-100 aspect-video">
+                  <img
+                    src={resolveImg(r.data.image)}
+                    alt={r.data.title}
+                    width="400"
+                    height="300"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-full object-cover transition duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <span class="text-emerald-600 uppercase text-xs font-bold tracking-wider mt-3 block">
+                  {r.data.category}
+                </span>
+                <h3 class="text-sm font-semibold text-slate-800 mt-1 group-hover:text-emerald-700 transition line-clamp-2">
+                  {r.data.title}
+                </h3>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    <!-- Return to category -->
     <div class="text-center mt-12 pb-20 border-t border-slate-100 pt-10">
       <a
-        href={isMarket ? "/market" : "/blog"}
+        href={catHref}
         class="bg-emerald-50 text-emerald-700 px-8 py-3 rounded-md hover:bg-emerald-100 transition font-medium inline-flex items-center gap-2"
       >
-        {isMarket ? "← Back to Market Intelligence" : "← Back to Blog"}
+        ← Back to {cat?.name ?? "Blog"}
       </a>
     </div>
   </Container>

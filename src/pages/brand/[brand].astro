@@ -1,0 +1,58 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import Sectionhead from "@/components/sectionhead.astro";
+import Breadcrumb from "@/components/breadcrumb.astro";
+import PostList from "@/components/postlist.astro";
+import {
+  BRANDS,
+  getPublishedPosts,
+  matchesBrand,
+  type BlogEntry,
+} from "@/utils/taxonomy";
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts();
+  return BRANDS.filter((brand) =>
+    posts.some((p) => matchesBrand(p, brand))
+  ).map((brand) => ({
+    params: { brand: brand.slug },
+    props: {
+      brand,
+      posts: posts.filter((p) => matchesBrand(p, brand)),
+    },
+  }));
+}
+
+interface Props {
+  brand: (typeof BRANDS)[number];
+  posts: BlogEntry[];
+}
+
+const { brand, posts } = Astro.props;
+---
+
+<Layout title={brand.title} description={brand.description}>
+  <Container>
+    <Breadcrumb
+      items={[
+        { title: "Home", href: "/" },
+        { title: "Brands", href: "/brands" },
+        { title: brand.name },
+      ]}
+      class="mt-8"
+    />
+    <Sectionhead>
+      <Fragment slot="title">{brand.title}</Fragment>
+      <Fragment slot="desc">{brand.description}</Fragment>
+    </Sectionhead>
+
+    <div class="max-w-3xl mx-auto mt-8 text-slate-600 leading-relaxed">
+      <p>{brand.intro}</p>
+    </div>
+
+    <main class="mt-16">
+      <PostList posts={posts} />
+    </main>
+  </Container>
+</Layout>

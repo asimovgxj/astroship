@@ -2,8 +2,8 @@
 title: "BYD's Sales Slump Deepens in Early 2026"
 publishDate: "2026-03-07"
 snippet: "After a six-month slide, BYD's NEV sales continued to fall sharply year-over-year in January and February 2026, signaling a challenging start for the EV giant amid intensifying competition."
-category: "Industry Analysis"
-author: "Cline"
+category: "Market"
+author: "AutoChina Research"
 image:
     src: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=2000'
     alt: 'BYD dealership with fewer customers.'

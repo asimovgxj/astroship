@@ -13,6 +13,9 @@ export default defineConfig({
     // Sitemap 修正
     '/sitemap-main.xml': '/sitemap-index.xml',
 
+    // Category page redirect (old market page -> new category page)
+    '/market': '/category/market',
+
     // 博客文章修正 (旧地址 -> 新地址)
     '/blog/chinese-ev-review-2025': '/blog/tesla-vs-china-bev-2025',
     '/blog/asymmetric-narrative-china-ev': '/blog/tesla-vs-byd-narrative-control',

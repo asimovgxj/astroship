@@ -3,20 +3,37 @@ import Container from "@/components/container.astro";
 import Link from "@/components/ui/link.astro";
 import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import {
+  CATEGORIES,
+  BRANDS,
+  categoryUrl,
+  brandUrl,
+  getPublishedPosts,
+  countByCategory,
+  matchesBrand,
+  MIN_POSTS_FOR_NAV,
+} from "@/utils/taxonomy";
 
-// Redefined industry menu for AutoChina.org
+const posts = await getPublishedPosts();
+const catCounts = countByCategory(posts);
+
+// Build category nav items (only categories with enough posts)
+const categoryItems = CATEGORIES
+  .filter((c) => (catCounts.get(c.name) ?? 0) >= MIN_POSTS_FOR_NAV)
+  .map((c) => ({ title: c.name, path: categoryUrl(c.name) }));
+
+// Build brand dropdown children (only brands with articles)
+const brandChildren = BRANDS
+  .filter((b) => posts.some((p) => matchesBrand(p, b)))
+  .map((b) => ({ title: b.name, path: brandUrl(b.slug) }));
+brandChildren.push({ title: "Brand Tracker", path: "/brands" });
+
 const menuitems = [
-  { title: "Market", path: "/market" },
-  { title: "Policy", path: "/blog" }, // Later filtered in market.astro to show Policy
-  { title: "Supply Chain", path: "/blog" },
+  ...categoryItems,
   {
     title: "Brands",
     path: "#",
-    children: [
-      { title: "TESLA", path: "/blog" }, 
-{ title: "BYD", path: "/blog" }, // BYD as an independent tag
-      { title: "Brand Tracker", path: "/blog" }, // Other brands collection
-    ],
+    children: brandChildren,
   },
   { title: "About", path: "/about" },
 ];

@@ -4,7 +4,7 @@ title: "China's Tech Rise: Imitator, Accelerator, or the New Standard?"
 snippet: "A closer look at why China’s industrial rise is not simply copying, but redesigning the rules of competitive manufacturing and strategic innovation."
 image: "photo-1522202176988-66273c2fd55f"
 publishDate: "2026-09-18"
-category: "Market"
+category: "Opinion"
 author: "AutoChina Research"
 tags: ["China", "Innovation", "Industrial Strategy", "Manufacturing", "Global Tech"]
 ---

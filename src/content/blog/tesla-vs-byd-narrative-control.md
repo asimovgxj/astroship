@@ -4,7 +4,7 @@ title: "The 'Double Standard' Barrier: Asymmetric Narrative Control and EV Safet
 snippet: "How domestic EV giants leverage administrative support and diversified legal strategies to manage safety crises, while Tesla operates in a starkly different media environment."
 image: "photo-1492144534655-ae79c964c9d7"
 publishDate: "2026-02-20"
-category: "Market"
+category: "Policy"
 author: "AutoChina Research"
 tags: ["Tesla", "BYD", "Regulation", "Market Sentiment", "Crisis Management"]
 ---

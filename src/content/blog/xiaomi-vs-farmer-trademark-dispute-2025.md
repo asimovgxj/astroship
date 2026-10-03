@@ -6,8 +6,8 @@ image:
   src: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1200"
   alt: "A serene field of golden millet under a bright sky."
 publishDate: "2026-03-11"
-category: "Market"
-author: "Cline @ AutoChina Research"
+category: "Policy"
+author: "AutoChina Research"
 tags: ["Xiaomi", "Trademark", "Law", "Public Relations", "China"]
 ---
 

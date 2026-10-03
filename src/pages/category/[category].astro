@@ -1,0 +1,57 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import Sectionhead from "@/components/sectionhead.astro";
+import Breadcrumb from "@/components/breadcrumb.astro";
+import PostList from "@/components/postlist.astro";
+import {
+  CATEGORIES,
+  getPublishedPosts,
+  slugify,
+  type BlogEntry,
+} from "@/utils/taxonomy";
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts();
+  return CATEGORIES.filter((cat) =>
+    posts.some((p) => p.data.category === cat.name)
+  ).map((cat) => ({
+    params: { category: cat.slug },
+    props: {
+      cat,
+      posts: posts.filter((p) => p.data.category === cat.name),
+    },
+  }));
+}
+
+interface Props {
+  cat: (typeof CATEGORIES)[number];
+  posts: BlogEntry[];
+}
+
+const { cat, posts } = Astro.props;
+---
+
+<Layout title={cat.title} description={cat.description}>
+  <Container>
+    <Breadcrumb
+      items={[
+        { title: "Home", href: "/" },
+        { title: cat.name },
+      ]}
+      class="mt-8"
+    />
+    <Sectionhead>
+      <Fragment slot="title">{cat.title}</Fragment>
+      <Fragment slot="desc">{cat.description}</Fragment>
+    </Sectionhead>
+
+    <div class="max-w-3xl mx-auto mt-8 text-slate-600 leading-relaxed">
+      <p>{cat.intro}</p>
+    </div>
+
+    <main class="mt-16">
+      <PostList posts={posts} />
+    </main>
+  </Container>
+</Layout>

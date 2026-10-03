@@ -4,8 +4,8 @@ title: "Xiaomi SU7 vs. Tesla Model 3: How China's New EV Titans Are Surrounding 
 snippet: "An independent evaluation of China's latest automotive landscape, comparing the Xiaomi SU7 Max, Nio ET5, and Zeekr 007 against the 2024 Tesla Model 3."
 image: "photo-1593941707882-a5bba14938c7"
 publishDate: "2025-02-24"
-category: "Reviews"
-author: "AutoChina Intelligence Unit"
+category: "Brands"
+author: "AutoChina Research"
 tags: [Tesla, Xiaomi SU7, Nio ET5, Zeekr 007, EV Performance]
 ---
 

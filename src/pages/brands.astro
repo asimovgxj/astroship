@@ -1,0 +1,79 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import Sectionhead from "@/components/sectionhead.astro";
+import Breadcrumb from "@/components/breadcrumb.astro";
+import {
+  BRANDS,
+  getPublishedPosts,
+  matchesBrand,
+  brandUrl,
+} from "@/utils/taxonomy";
+
+const posts = await getPublishedPosts();
+const brandsWithCounts = BRANDS.map((brand) => ({
+  ...brand,
+  count: posts.filter((p) => matchesBrand(p, brand)).length,
+}));
+---
+
+<Layout
+  title="Brand Tracker – Chinese EV Brands"
+  description="Browse every brand we cover: BYD, Tesla, Xiaomi, NIO, and more. See the latest articles, sales data, and analysis for each company."
+>
+  <Container>
+    <Breadcrumb
+      items={[
+        { title: "Home", href: "/" },
+        { title: "Brands" },
+      ]}
+      class="mt-8"
+    />
+    <Sectionhead>
+      <Fragment slot="title">Brand Tracker</Fragment>
+      <Fragment slot="desc">
+        Browse every brand we cover. Click through for the latest articles, sales data, and analysis on each company shaping China's EV industry.
+      </Fragment>
+    </Sectionhead>
+
+    <div class="max-w-3xl mx-auto mt-8 text-slate-600 leading-relaxed">
+      <p>
+        The global electric vehicle market is increasingly defined by a handful of
+        companies based in or competing heavily inside China. Some are legacy
+        manufacturers that pivoted to electrification, others are technology
+        companies entering the auto industry for the first time, and at least one
+        is a foreign pioneer now deeply embedded in China's supply chain and
+        consumer culture. Each brand page below gathers every article we have
+        published about that company — market data, policy analysis, product
+        reviews, and opinion — so you can follow one maker's story from sales
+        figures to regulatory battles without searching the full archive. Counts
+        update automatically as we publish new coverage.
+      </p>
+    </div>
+
+    <main class="mt-16 max-w-4xl mx-auto">
+      <ul class="grid sm:grid-cols-2 gap-8">
+        {
+          brandsWithCounts.map((brand) => (
+            <li>
+              <a
+                href={brandUrl(brand.slug)}
+                class="block p-6 rounded-lg border border-slate-200 hover:border-emerald-400 hover:shadow-md transition duration-200 group"
+              >
+                <h2 class="text-xl font-bold text-slate-800 group-hover:text-emerald-700 transition">
+                  {brand.name}
+                </h2>
+                <p class="text-slate-500 mt-2 text-sm line-clamp-2">
+                  {brand.description}
+                </p>
+                <span class="mt-4 inline-block text-xs font-semibold text-emerald-600 uppercase tracking-wider">
+                  {brand.count} {brand.count === 1 ? "article" : "articles"}
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </main>
+  </Container>
+</Layout>

@@ -7,8 +7,8 @@ image: {
   alt: "Xiaomi vs Tesla Sales Comparison"
 }
 publishDate: "2026-03-03"
-category: "Analysis"
-author: "AutoChina"
+category: "Market"
+author: "AutoChina Research"
 tags: [Xiaomi, Tesla, EV, China, Sales]
 ---
 

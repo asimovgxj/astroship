@@ -1,0 +1,41 @@
+---
+// Visible breadcrumb trail. The last item is the current page and is not linked.
+export interface Props {
+  items: { title: string; href?: string }[];
+  class?: string;
+}
+
+const { items, class: className } = Astro.props;
+---
+
+<nav aria-label="Breadcrumb" class:list={["text-sm text-slate-500", className]}>
+  <ol class="flex flex-wrap items-center gap-1.5">
+    {
+      items.map((item, index) => {
+        const isLast = index === items.length - 1;
+        return (
+          <li class="flex items-center gap-1.5 min-w-0">
+            {index > 0 && (
+              <span class="text-slate-300" aria-hidden="true">
+                ›
+              </span>
+            )}
+            {isLast || !item.href ? (
+              <span
+                class="text-slate-700 font-medium truncate max-w-[16rem] md:max-w-md"
+                aria-current={isLast ? "page" : undefined}>
+                {item.title}
+              </span>
+            ) : (
+              <a
+                href={item.href}
+                class="hover:text-emerald-700 transition duration-200">
+                {item.title}
+              </a>
+            )}
+          </li>
+        );
+      })
+    }
+  </ol>
+</nav>
