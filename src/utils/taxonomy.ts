@@ -163,6 +163,7 @@ export const resolveImg = (
   if (!imgData) return "";
   const rawUrl = typeof imgData === "object" ? imgData.src : imgData;
   if (!rawUrl) return "";
+  if (rawUrl.startsWith("/")) return rawUrl;
   if (rawUrl.startsWith("http")) return rawUrl;
   return `https://images.unsplash.com/${rawUrl}?auto=format&fit=crop&w=${width}&q=80`;
 };

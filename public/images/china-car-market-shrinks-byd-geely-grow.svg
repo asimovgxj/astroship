@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">China passenger car market contraction and share shift</title>
+  <desc id="desc">A stylized market chart showing a 23.6 percent decline and growth in domestic Chinese brand share.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071c18"/><stop offset="1" stop-color="#0d3b31"/></linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#63d6a7"/><stop offset="1" stop-color="#1c9a6e"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000" flood-opacity=".28"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1270" cy="160" r="260" fill="#22a97d" opacity=".12"/>
+  <circle cx="300" cy="760" r="340" fill="#d9e7df" opacity=".04"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#eff8f4">
+    <text x="110" y="105" font-size="32" font-weight="700" letter-spacing="7">AUTOCHINA RESEARCH</text>
+    <text x="110" y="196" font-size="68" font-weight="700">China passenger-car market</text>
+    <text x="110" y="270" font-size="48" font-weight="400" fill="#b8d7ca">Share up, volume down</text>
+    <text x="110" y="340" font-size="26" fill="#9fc8b7">Domestic retail falls while Chinese brands gain share</text>
+  </g>
+  <g transform="translate(110 430)" filter="url(#shadow)">
+    <rect width="1380" height="350" rx="28" fill="#f6faf8" opacity=".97"/>
+    <g stroke="#c8d9d2" stroke-width="2">
+      <line x1="125" y1="44" x2="1300" y2="44"/><line x1="125" y1="115" x2="1300" y2="115"/><line x1="125" y1="186" x2="1300" y2="186"/><line x1="125" y1="257" x2="1300" y2="257"/>
+    </g>
+    <g fill="#61766e" font-family="Arial, Helvetica, sans-serif" font-size="19">
+      <text x="40" y="52">-25%</text><text x="40" y="123">-20%</text><text x="40" y="194">-15%</text><text x="40" y="265">-10%</text>
+    </g>
+    <rect x="160" y="178" width="250" height="79" rx="8" fill="#c9d9d2"/>
+    <rect x="510" y="194" width="250" height="63" rx="8" fill="#c9d9d2"/>
+    <rect x="860" y="150" width="250" height="107" rx="8" fill="url(#bar)"/>
+    <g font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#173c32">
+      <text x="240" y="225">Market</text><text x="240" y="248" font-size="18" font-weight="400">−23.6%</text>
+      <text x="590" y="242">Chinese</text><text x="590" y="265" font-size="18" font-weight="400">brands</text>
+      <text x="940" y="218">Share</text><text x="940" y="241" font-size="18" font-weight="400">+4.1 pts</text>
+    </g>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#e9f4ef">
+    <text x="110" y="845" font-size="24" font-weight="700">69.9% domestic retail share</text>
+    <text x="560" y="845" font-size="24" fill="#b7d2c5">1.541M sales</text>
+    <text x="900" y="845" font-size="24" fill="#b7d2c5">Exports sustain volume</text>
+  </g>
+</svg>
