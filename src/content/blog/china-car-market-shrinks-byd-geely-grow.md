@@ -2,7 +2,7 @@
 draft: false
 title: "China's Passenger-Car Market Contracts as Domestic Brands Gain Share"
 snippet: "Retail sales fell 23.6% in August, yet Chinese brands still gained share at home. Exports, not domestic demand, kept their factory volumes growing."
-image: "/images/china-car-market-hero.svg"
+image: "photo-1611016186353-9af58c69a533"
 publishDate: "2026-10-07"
 category: "Market"
 author: "AutoChina Research"
