@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">China car market analysis with vehicles and analysts</title>
+  <desc id="desc">A realistic illustrated scene of a Chinese electric vehicle on a road with analysts reviewing market data.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#dce9ed"/><stop offset="1" stop-color="#f5e7d2"/></linearGradient>
+    <linearGradient id="road" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#33444a"/><stop offset="1" stop-color="#17272d"/></linearGradient>
+    <linearGradient id="car" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0f6f5c"/><stop offset="1" stop-color="#063e36"/></linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#bfe2e4"/><stop offset="1" stop-color="#55765f"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#08231f" flood-opacity=".30"/></filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="12"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="1310" cy="185" r="115" fill="#f5c784" opacity=".8"/>
+  <path d="M0 470Q300 400 620 455T1600 440V900H0Z" fill="#8fa69b"/>
+  <path d="M0 586Q360 505 760 558T1600 525V900H0Z" fill="#5f7c6e"/>
+  <path d="M0 650Q420 590 880 646T1600 600V900H0Z" fill="url(#road)"/>
+  <path d="M760 900L1040 710L1300 900Z" fill="#2b3f43" opacity=".9"/>
+  <g opacity=".36" stroke="#e5d7b5" stroke-width="8">
+    <path d="M440 900L760 690"/><path d="M1020 900L1280 690"/>
+  </g>
+  <g transform="translate(940 510)" filter="url(#shadow)">
+    <path d="M80 290Q90 200 190 160L200 140Q245 110 305 125L390 150Q450 175 470 235L520 320Q530 360 500 380H105Q65 380 55 345Z" fill="url(#car)"/>
+    <path d="M208 162L253 126Q290 108 335 122L405 154L438 205L207 205Z" fill="url(#glass)"/>
+    <path d="M270 145L344 163L385 198H210Z" fill="#d4ece8" opacity=".42"/>
+    <path d="M85 315H460" stroke="#052f2a" stroke-width="22" stroke-linecap="round"/>
+    <circle cx="145" cy="365" r="65" fill="#132d31"/><circle cx="145" cy="365" r="32" fill="#8aa09c"/>
+    <circle cx="455" cy="365" r="65" fill="#132d31"/><circle cx="455" cy="365" r="32" fill="#8aa09c"/>
+    <path d="M340 240H410" stroke="#93d5bd" stroke-width="8" stroke-linecap="round"/>
+    <path d="M118 272H213" stroke="#c9e8df" stroke-width="12" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(300 515)" filter="url(#shadow)">
+    <circle cx="92" cy="81" r="55" fill="#d5a37a"/>
+    <path d="M36 63Q74 10 130 62L151 118H37Z" fill="#182d38"/>
+    <path d="M38 129Q65 88 105 88Q148 88 184 130L205 320H15Z" fill="#e4d6b4"/>
+    <path d="M35 315L86 230L145 316" fill="#174c43"/>
+    <path d="M15 320L-15 410H200L204 320Z" fill="#dce7df"/>
+  </g>
+  <g transform="translate(1210 548)" filter="url(#shadow)">
+    <circle cx="75" cy="53" r="43" fill="#ad7658"/>
+    <path d="M37 43Q65 3 111 38L124 86H32Z" fill="#162d35"/>
+    <path d="M28 95Q55 64 83 64Q117 64 144 101L158 302H17Z" fill="#d8e1dc"/>
+    <path d="M22 300L61 213L116 300" fill="#e68545"/>
+    <path d="M17 302L-4 385H160L158 302Z" fill="#d4ddd7"/>
+  </g>
+  <g transform="translate(75 90)" filter="url(#shadow)">
+    <rect width="460" height="290" rx="24" fill="#f4f8f4" opacity=".96"/>
+    <rect x="30" y="32" width="400" height="34" rx="17" fill="#dce7e1"/>
+    <text x="48" y="71" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#173d35">MARKET SIGNALS</text>
+    <text x="48" y="140" font-family="Arial, sans-serif" font-size="62" font-weight="800" fill="#0c5e4d">−23.6%</text>
+    <text x="48" y="172" font-family="Arial, sans-serif" font-size="20" fill="#587068">Domestic passenger car retail</text>
+    <path d="M48 220L130 202L210 218L290 165L360 175L396 120" fill="none" stroke="#e58645" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="396" cy="120" r="16" fill="#e58645"/>
+  </g>
+  <g transform="translate(1120 95)" filter="url(#shadow)">
+    <rect width="350" height="210" rx="24" fill="#173c35" opacity=".96"/>
+    <text x="28" y="55" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#b8d7c9">CHINESE BRAND SHARE</text>
+    <text x="28" y="124" font-family="Arial, sans-serif" font-size="58" font-weight="800" fill="#f4b76f">69.9%</text>
+    <rect x="28" y="149" width="294" height="23" rx="11" fill="#315e54"/>
+    <rect x="28" y="149" width="232" height="23" rx="11" fill="#56c896"/>
+    <text x="28" y="183" font-family="Arial, sans-serif" font-size="18" fill="#d5e6de">Up 4.1 percentage points</text>
+  </g>
+  <g font-family="Arial, sans-serif" fill="#f9fbf8">
+    <text x="80" y="840" font-size="35" font-weight="800">SHARE UP</text>
+    <text x="80" y="878" font-size="25" fill="#dce8e2">Volume falls while exports keep the market moving</text>
+    <text x="1170" y="840" font-size="35" font-weight="800">VOLUME DOWN</text>
+    <text x="1170" y="878" font-size="25" fill="#dce8e2">The market shifts from domestic demand to exports</text>
+  </g>
+  <rect x="0" y="0" width="1600" height="900" fill="none" stroke="#ffffff" stroke-opacity=".18" stroke-width="8"/>
+</svg>
