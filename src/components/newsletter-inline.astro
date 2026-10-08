@@ -1,0 +1,41 @@
+---
+// src/components/newsletter-inline.astro
+// Compact Buttondown subscribe box shown at the end of every article.
+// Uses the same Buttondown list as the homepage CTA (cta.astro).
+---
+
+<div
+  class="mx-auto max-w-3xl mt-14 bg-emerald-900 rounded-2xl p-8 md:p-10 text-center shadow-xl border border-white/5">
+  <h2 class="text-white text-2xl md:text-3xl font-bold tracking-tight">
+    Get the Weekly China Auto Briefing
+  </h2>
+  <p class="text-emerald-100/70 mt-3 text-base md:text-lg max-w-xl mx-auto">
+    One email a week: verified sales data, export trends, and policy shifts in China's automotive industry. Free.
+  </p>
+
+  <form
+    action="https://buttondown.email/api/emails/embed-subscribe/autochina"
+    method="post"
+    target="popupwindow"
+    onsubmit="window.open('https://buttondown.email', 'popupwindow')"
+    class="flex flex-col sm:flex-row w-full max-w-md mx-auto mt-6 gap-3">
+    <label for="newsletter-inline-email" class="sr-only">Email address</label>
+    <input
+      id="newsletter-inline-email"
+      type="email"
+      name="email"
+      placeholder="Enter your email..."
+      required
+      class="flex-1 px-5 py-3 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-emerald-100/40 focus:outline-none focus:ring-2 focus:ring-white/50 transition shadow-inner"
+    />
+    <input type="hidden" value="1" name="embed" />
+    <input type="hidden" value="article-footer" name="tag" />
+    <button
+      type="submit"
+      class="bg-white text-emerald-900 hover:bg-emerald-50 px-6 py-3 rounded-md font-bold transition shadow-lg whitespace-nowrap">
+      Subscribe for Free
+    </button>
+  </form>
+
+  <p class="text-emerald-200/40 mt-4 text-xs">No spam. Unsubscribe anytime.</p>
+</div>

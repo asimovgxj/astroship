@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
 import Breadcrumb from "@/components/breadcrumb.astro";
+import NewsletterInline from "@/components/newsletter-inline.astro";
 import {
   getPublishedPosts,
   getRelatedPosts,
@@ -114,6 +115,9 @@ const entryBrands = getBrandsForEntry(entry);
     <div class="mx-auto prose prose-lg mt-6 max-w-3xl prose-headings:text-slate-800 prose-p:text-slate-600">
       <Content />
     </div>
+
+    <!-- Newsletter subscribe box -->
+    <NewsletterInline />
 
     <!-- Related articles -->
     {related.length > 0 && (
