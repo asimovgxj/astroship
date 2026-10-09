@@ -20,6 +20,9 @@ pnpm-debug.log*
 # automation pipeline (kept locally, not published)
 automation/
 
+# local-only media (videos are embedded from X, never hosted on the site)
+public/videos/
+
 # private SEO backups and scripts
 backup_seo/
 *.py
