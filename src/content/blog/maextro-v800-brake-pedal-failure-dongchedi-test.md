@@ -13,7 +13,7 @@ A brake pedal is the least glamorous part of a car. It has no screen, no softwar
 
 On October 8th, the first working day after China's National Day holiday, Dongchedi, the car-review platform owned by ByteDance, published a test video. Its team had bought three V800s with its own money on October 1st, 3rd and 4th, from different batches, and run them through a standard 100km/h-to-zero emergency stop on a closed track. On each car the brake pedal bracket snapped: on the third full stop for the first car, the fourth for the second and the second for the third. The breaks were in the same place and looked nearly identical. One of the cars had 3km on the odometer. With the foot brake gone, the drivers could only slow down by shifting into P.
 
-<video controls playsinline preload="metadata" poster="https://pbs.twimg.com/amplify_video_thumb/2108013173395849216/img/DlYeLrK6yA-wZA0Q.jpg" style="display: block; width: 100%; height: auto; aspect-ratio: 16 / 9;">
+<video controls playsinline preload="metadata" referrerpolicy="no-referrer" poster="https://pbs.twimg.com/amplify_video_thumb/2108013173395849216/img/DlYeLrK6yA-wZA0Q.jpg" style="display: block; width: 100%; height: auto; aspect-ratio: 16 / 9;">
   <source src="https://video.twimg.com/amplify_video/2108013173395849216/vid/avc1/1280x720/qOAHVHc7LVgBA8BK.mp4?tag=29" type="video/mp4" />
 </video>
 
