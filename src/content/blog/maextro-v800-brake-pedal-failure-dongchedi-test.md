@@ -13,13 +13,9 @@ A brake pedal is the least glamorous part of a car. It has no screen, no softwar
 
 On October 8th, the first working day after China's National Day holiday, Dongchedi, the car-review platform owned by ByteDance, published a test video. Its team had bought three V800s with its own money on October 1st, 3rd and 4th, from different batches, and run them through a standard 100km/h-to-zero emergency stop on a closed track. On each car the brake pedal bracket snapped: on the third full stop for the first car, the fourth for the second and the second for the third. The breaks were in the same place and looked nearly identical. One of the cars had 3km on the odometer. With the foot brake gone, the drivers could only slow down by shifting into P.
 
-<figure>
-  <blockquote class="twitter-video" data-status="hidden" data-dnt="true" data-lang="en">
-    <a href="https://x.com/_FORAB/status/2108013424148164637">Watch the Dongchedi Maextro V800 brake test video on X</a>
-  </blockquote>
-  <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
-  <figcaption>Footage from Dongchedi's emergency-braking test of the Maextro V800, as reposted on X by <a href="https://x.com/_FORAB/status/2108013424148164637">@_FORAB</a> before the original was taken off Chinese platforms. If the post is removed, the video will no longer play here.</figcaption>
-</figure>
+<video controls playsinline preload="metadata" poster="https://pbs.twimg.com/amplify_video_thumb/2108013173395849216/img/DlYeLrK6yA-wZA0Q.jpg" style="display: block; width: 100%; height: auto; aspect-ratio: 16 / 9;">
+  <source src="https://video.twimg.com/amplify_video/2108013173395849216/vid/avc1/1280x720/qOAHVHc7LVgBA8BK.mp4?tag=29" type="video/mp4" />
+</video>
 
 ## Who gets to call a test "extreme"
 
@@ -65,5 +61,5 @@ Maextro wants to sell abroad. Search data already show global interest in the V8
 
 ***
 
-*Disclaimer: This analysis is based on Dongchedi's published test, Maextro's official statement of October 8th, 2026, statements by Maextro customer service as reported by Chinese media, and reporting by New Yellow River, China Daily, Caixin, CnEVPost and other outlets available at the time of writing. The footage is embedded directly from a public post on X for the purposes of commentary and news reporting; it is not hosted by AutoChina.*
+*Disclaimer: This analysis is based on Dongchedi's published test, Maextro's official statement of October 8th, 2026, statements by Maextro customer service as reported by Chinese media, and reporting by New Yellow River, China Daily, Caixin, CnEVPost and other outlets available at the time of writing. The video is served from X's public video CDN for the purposes of commentary and news reporting; it is not hosted by AutoChina.*
 
